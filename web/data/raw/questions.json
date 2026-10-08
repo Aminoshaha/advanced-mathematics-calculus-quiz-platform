@@ -1,0 +1,479 @@
+{
+  "meta": {
+    "chapter": "极限",
+    "title": "高等数学 · 极限 小测题库",
+    "source": "答题 App 截图转录（Test1-5，每题 10 分，均为单选题）",
+    "totalImages": 50,
+    "uniqueImages": 40,
+    "duplicateNote": "Test4 目录下的 10 张图与 Test1 逐字节完全相同（MD5 一致），为重复卷，已排除。故实际唯一题目为 40 道。",
+    "extractedAt": "人工复核前",
+    "missingIds": ["T2-01", "T2-04"],
+    "missingNote": "T2-01 与 T2-04 两次提取均失败，待重新提取。"
+  },
+  "questions": [
+    {
+      "id": "T1-01", "testNo": 1, "index": 1, "src": "Test1/Test1-1.jpg", "score": 10,
+      "stemLatex": "极限 $\\lim_{x \\to \\infty} x\\sin\\frac{2x}{x^{2}+1}$ 等于",
+      "options": [
+        { "key": "A", "latex": "2" },
+        { "key": "B", "latex": "1" },
+        { "key": "C", "latex": "3" },
+        { "key": "D", "latex": "4" }
+      ],
+      "myAnswer": "A", "correctAnswer": "A",
+      "knowledgePoints": ["等价替换"], "kpSource": "app"
+    },
+    {
+      "id": "T1-02", "testNo": 1, "index": 2, "src": "Test1/Test1-2.jpg", "score": 10,
+      "stemLatex": "设当 $x \\to 0$ 时，$(1-\\cos x)\\ln(1+x^{2})$ 是比 $x\\sin x^{n}$ 高阶的无穷小，而 $x\\sin x^{n}$ 是比 $(e^{x^{2}}-1)$ 高阶的无穷小，则正整数 $n$ 等于",
+      "options": [
+        { "key": "A", "latex": "2" },
+        { "key": "B", "latex": "1" },
+        { "key": "C", "latex": "4" },
+        { "key": "D", "latex": "3" }
+      ],
+      "myAnswer": "A", "correctAnswer": "A",
+      "knowledgePoints": ["无穷小的阶"], "kpSource": "app"
+    },
+    {
+      "id": "T1-03", "testNo": 1, "index": 3, "src": "Test1/Test1-3.jpg", "score": 10,
+      "stemLatex": "极限 $\\lim\\limits_{x \\to 0} \\ln \\frac{\\sin x}{x}$ 等于",
+      "options": [
+        { "key": "A", "latex": "1" },
+        { "key": "B", "latex": "0" },
+        { "key": "C", "latex": "不存在" },
+        { "key": "D", "latex": "$\\infty$" }
+      ],
+      "myAnswer": "B", "correctAnswer": "B",
+      "knowledgePoints": ["四则运算"], "kpSource": "app"
+    },
+    {
+      "id": "T1-04", "testNo": 1, "index": 4, "src": "Test1/Test1-4.jpg", "score": 10,
+      "stemLatex": "函数 $f(x)=\\frac{1}{x}\\cos\\frac{1}{x}$ 在 $x=0$ 点的任何邻域内都是（）",
+      "options": [
+        { "key": "A", "latex": "单调增加的" },
+        { "key": "B", "latex": "单调减少的" },
+        { "key": "C", "latex": "有界的" },
+        { "key": "D", "latex": "无界的" }
+      ],
+      "myAnswer": "D", "correctAnswer": "D",
+      "knowledgePoints": ["极限定义与性质"], "kpSource": "app"
+    },
+    {
+      "id": "T1-05", "testNo": 1, "index": 5, "src": "Test1/Test1-5.jpg", "score": 10,
+      "stemLatex": "设函数 $f(x)=\\frac{x}{a+e^{bx}}$ 在 $(-\\infty,+\\infty)$ 内连续，且 $\\lim_{x \\to -\\infty} f(x)=0$，则常数 $a,b$ 满足（）",
+      "options": [
+        { "key": "A", "latex": "$a<0,b<0$" },
+        { "key": "B", "latex": "$a\\le 0,b>0$" },
+        { "key": "C", "latex": "$a>0,b>0$" },
+        { "key": "D", "latex": "$a\\ge 0,b<0$" }
+      ],
+      "myAnswer": "D", "correctAnswer": "D",
+      "knowledgePoints": ["连续的概念"], "kpSource": "inferred",
+      "reviewNote": "原图知识点标签被底部按钮栏遮挡，标签内容按题干推断。"
+    },
+    {
+      "id": "T1-06", "testNo": 1, "index": 6, "src": "Test1/Test1-6.jpg", "score": 10,
+      "stemLatex": "下列极限存在的是()",
+      "options": [
+        { "key": "A", "latex": "$\\lim_{x \\to +\\infty} \\sqrt{\\frac{x^2+1}{x}}$" },
+        { "key": "B", "latex": "$\\lim_{x \\to 0} e^{\\frac{1}{x}}$" },
+        { "key": "C", "latex": "$\\lim_{x \\to \\infty} \\frac{x(x+2)(x-\\sin x)}{x^{3}}$" },
+        { "key": "D", "latex": "$\\lim_{x \\to 0} \\frac{1}{2^{x}-1}$" }
+      ],
+      "myAnswer": "C", "correctAnswer": "C",
+      "knowledgePoints": ["极限定义与性质"], "kpSource": "inferred",
+      "reviewNote": "原图知识点标签被遮挡，按题干推断。选项 D 分母经放大确认为 $2^{x}-1$。"
+    },
+    {
+      "id": "T1-07", "testNo": 1, "index": 7, "src": "Test1/Test1-7.jpg", "score": 10,
+      "stemLatex": "极限 $\\lim_{x \\to 7}\\frac{x^{2}-3x-28}{x^{2}-5x-14}=$",
+      "options": [
+        { "key": "A", "latex": "$2$" },
+        { "key": "B", "latex": "$\\frac{11}{9}$" },
+        { "key": "C", "latex": "$4$" },
+        { "key": "D", "latex": "$0$" }
+      ],
+      "myAnswer": "B", "correctAnswer": "B",
+      "knowledgePoints": ["四则运算"], "kpSource": "app"
+    },
+    {
+      "id": "T1-08", "testNo": 1, "index": 8, "src": "Test1/Test1-8.jpg", "score": 10,
+      "stemLatex": "$\\lim_{x \\to 0} \\frac{x \\ln(1+2x)}{1-\\cos x}$ 等于",
+      "options": [
+        { "key": "A", "latex": "$2$" },
+        { "key": "B", "latex": "$3$" },
+        { "key": "C", "latex": "$4$" },
+        { "key": "D", "latex": "$-4$" }
+      ],
+      "myAnswer": "C", "correctAnswer": "C",
+      "knowledgePoints": ["等价替换"], "kpSource": "app"
+    },
+    {
+      "id": "T1-09", "testNo": 1, "index": 9, "src": "Test1/Test1-9.jpg", "score": 10,
+      "stemLatex": "极限 $\\lim\\limits_{x \\to 0}\\left(\\frac{2^{x}+3^{x}}{2}\\right)^{\\frac{1}{x}} = (\\quad)$",
+      "options": [
+        { "key": "A", "latex": "$1$" },
+        { "key": "B", "latex": "$\\sqrt{2}$" },
+        { "key": "C", "latex": "$\\sqrt{6}$" },
+        { "key": "D", "latex": "$2$" }
+      ],
+      "myAnswer": "C", "correctAnswer": "C",
+      "knowledgePoints": ["重要极限"], "kpSource": "app"
+    },
+    {
+      "id": "T1-10", "testNo": 1, "index": 10, "src": "Test1/Test1-10.jpg", "score": 10,
+      "stemLatex": "设 $f(x)=\\lim\\limits_{n\\to\\infty}\\frac{(n-1)x}{nx^{2}+1}$，则 $f(x)$ 的间断点为",
+      "options": [
+        { "key": "A", "latex": "$x=-1$" },
+        { "key": "B", "latex": "$x=2$" },
+        { "key": "C", "latex": "$x=0$" },
+        { "key": "D", "latex": "$x=1$" }
+      ],
+      "myAnswer": "C", "correctAnswer": "C",
+      "knowledgePoints": ["间断点"], "kpSource": "app"
+    },
+    {
+      "id": "T2-02", "testNo": 2, "index": 2, "src": "Test2/Test2-2.jpg", "score": 10,
+      "stemLatex": "设 $f(x)=\\frac{x^{2}-4}{x-2}e^{-\\frac{1}{x-2}}$，则",
+      "options": [
+        { "key": "A", "latex": "$\\lim\\limits_{x \\to 2} f(x) = 2$" },
+        { "key": "B", "latex": "$\\lim\\limits_{x \\to 2} f(x) = 0$" },
+        { "key": "C", "latex": "$\\lim\\limits_{x \\to 2} f(x) = \\infty$" },
+        { "key": "D", "latex": "$\\lim\\limits_{x \\to 2} f(x)$ 不存在，且 $\\lim\\limits_{x \\to 2} f(x) \\neq \\infty$" }
+      ],
+      "myAnswer": "B", "correctAnswer": "D",
+      "knowledgePoints": ["极限定义与性质"], "kpSource": "inferred",
+      "reviewNote": "原图知识点标签被截断，按题干（左右极限不等）推断。"
+    },
+    {
+      "id": "T2-03", "testNo": 2, "index": 3, "src": "Test2/Test2-3.jpg", "score": 10,
+      "stemLatex": "设 $\\lim\\limits_{x \\to \\infty}\\left(\\frac{x+2a}{x-a}\\right)^{x}=27$，则 $a=(\\ )$",
+      "options": [
+        { "key": "A", "latex": "$0$" },
+        { "key": "B", "latex": "$e^{-1}$" },
+        { "key": "C", "latex": "$\\ln 3$" },
+        { "key": "D", "latex": "$1$" }
+      ],
+      "myAnswer": "C", "correctAnswer": "C",
+      "knowledgePoints": ["重要极限"], "kpSource": "app"
+    },
+    {
+      "id": "T2-05", "testNo": 2, "index": 5, "src": "Test2/Test2-5.jpg", "score": 10,
+      "stemLatex": "已知函数 $f(x)=\\lim\\limits_{n \\to \\infty}\\frac{1-x}{1+x^{2n}}\\ (n>0$ 为自然数$)$，则下列叙述正确的是",
+      "options": [
+        { "key": "A", "latex": "$x=1$ 是 $f(x)$ 的连续点，$x=-1$ 是 $f(x)$ 的跳跃间断点." },
+        { "key": "B", "latex": "$x=-1$ 是 $f(x)$ 的连续点，$x=1$ 是 $f(x)$ 的跳跃间断点" },
+        { "key": "C", "latex": "$x=1$ 和 $x=-1$ 都是 $f(x)$ 的可去间断点." },
+        { "key": "D", "latex": "$x=1$ 和 $x=-1$ 都是 $f(x)$ 的跳跃间断点." }
+      ],
+      "myAnswer": "B", "correctAnswer": "A",
+      "knowledgePoints": ["间断点"], "kpSource": "inferred",
+      "reviewNote": "原图知识点标签被遮挡，按题干推断。"
+    },
+    {
+      "id": "T2-06", "testNo": 2, "index": 6, "src": "Test2/Test2-6.jpg", "score": 10,
+      "stemLatex": "设函数 $f(x)=\\begin{cases}\\dfrac{1-e^{\\tan x}}{\\arcsin 2x}, & x>0\\\\ ae^{4x}, & x\\leq 0\\end{cases}$ 在 $x=0$ 处连续，则 $a$ 等于",
+      "options": [
+        { "key": "A", "latex": "$\\dfrac{1}{2}$" },
+        { "key": "B", "latex": "$-1$" },
+        { "key": "C", "latex": "$1$" },
+        { "key": "D", "latex": "$-\\dfrac{1}{2}$" }
+      ],
+      "myAnswer": "D", "correctAnswer": "D",
+      "knowledgePoints": ["极限定义与性质"], "kpSource": "app"
+    },
+    {
+      "id": "T2-07", "testNo": 2, "index": 7, "src": "Test2/Test2-7.jpg", "score": 10,
+      "stemLatex": "“对任意给定的 $\\varepsilon \\in (0,1)$，总存在正整数 $N$，当 $n \\ge N$ 时，恒有 $|x_n - a| \\le 2\\varepsilon$”是数列 $\\{x_n\\}$ 收敛于 $a$ 的",
+      "options": [
+        { "key": "A", "latex": "必要条件但非充分条件" },
+        { "key": "B", "latex": "充分条件但非必要条件" },
+        { "key": "C", "latex": "既非充分条件又非必要条件" },
+        { "key": "D", "latex": "充分必要条件" }
+      ],
+      "myAnswer": "D", "correctAnswer": "D",
+      "knowledgePoints": ["极限定义与性质"], "kpSource": "app"
+    },
+    {
+      "id": "T2-08", "testNo": 2, "index": 8, "src": "Test2/Test2-8.jpg", "score": 10,
+      "stemLatex": "$\\lim\\limits_{x \\to 2}\\frac{4-x^2}{x-2}=(\\quad)$",
+      "options": [
+        { "key": "A", "latex": "$-2$" },
+        { "key": "B", "latex": "$-1$" },
+        { "key": "C", "latex": "$0$" },
+        { "key": "D", "latex": "$-4$" }
+      ],
+      "myAnswer": "D", "correctAnswer": "D",
+      "knowledgePoints": ["四则运算"], "kpSource": "app"
+    },
+    {
+      "id": "T2-09", "testNo": 2, "index": 9, "src": "Test2/Test2-9.jpg", "score": 10,
+      "stemLatex": "设当 $x \\to 0$ 时，$(1-\\cos x)\\ln(1+x^2)$ 是比 $x\\sin x^{n}$ 高阶的无穷小，而 $x\\sin x^{n}$ 是比 $(e^{x^{2}}-1)$ 高阶的无穷小，则正整数 $n$ 等于",
+      "options": [
+        { "key": "A", "latex": "2" },
+        { "key": "B", "latex": "4" },
+        { "key": "C", "latex": "1" },
+        { "key": "D", "latex": "3" }
+      ],
+      "myAnswer": "A", "correctAnswer": "A",
+      "knowledgePoints": ["无穷小的阶"], "kpSource": "app"
+    },
+    {
+      "id": "T2-10", "testNo": 2, "index": 10, "src": "Test2/Test2-10.jpg", "score": 10,
+      "stemLatex": "极限 $\\lim_{x \\to 0} \\frac{\\sqrt[3]{(1-x)(1+x)}-1}{e^{3x}-e^{2x}-e^{x}+1}$ 等于",
+      "options": [
+        { "key": "A", "latex": "$-\\frac{1}{5}$" },
+        { "key": "B", "latex": "$-\\frac{1}{6}$" },
+        { "key": "C", "latex": "$\\frac{1}{6}$" },
+        { "key": "D", "latex": "$\\frac{1}{5}$" }
+      ],
+      "myAnswer": "B", "correctAnswer": "B",
+      "knowledgePoints": ["等价替换"], "kpSource": "inferred",
+      "reviewNote": "原图知识点标签被截断，按题干推断。"
+    },
+    {
+      "id": "T3-01", "testNo": 3, "index": 1, "src": "Test3/Test3-1.jpg", "score": 10,
+      "stemLatex": "函数在一点有定义是函数在该点有极限的（）",
+      "options": [
+        { "key": "A", "latex": "充分条件" },
+        { "key": "B", "latex": "必要条件" },
+        { "key": "C", "latex": "充分必要条件" },
+        { "key": "D", "latex": "无关条件" }
+      ],
+      "myAnswer": "D", "correctAnswer": "D",
+      "knowledgePoints": ["极限定义与性质"], "kpSource": "app"
+    },
+    {
+      "id": "T3-02", "testNo": 3, "index": 2, "src": "Test3/Test3-2.jpg", "score": 10,
+      "stemLatex": "已知函数 $f(x)=\\lim_{n \\to \\infty} \\frac{1-x^{4n}}{1+x^{4n}}x$ ($n>0$ 为自然数),则 $f(x)$ 的可去间断点的个数为",
+      "options": [
+        { "key": "A", "latex": "1" },
+        { "key": "B", "latex": "3" },
+        { "key": "C", "latex": "2" },
+        { "key": "D", "latex": "0" }
+      ],
+      "myAnswer": "C", "correctAnswer": "D",
+      "knowledgePoints": ["间断点"], "kpSource": "app"
+    },
+    {
+      "id": "T3-03", "testNo": 3, "index": 3, "src": "Test3/Test3-3.jpg", "score": 10,
+      "stemLatex": "设函数 $$f(x)=\\begin{cases} \\frac{1-e^{\\tan x}}{\\arcsin 2x}, & x>0 \\\\ ae^{4x} & x\\le 0 \\end{cases}$$ 在 $x=0$ 处连续，则 $a$ 等于",
+      "options": [
+        { "key": "A", "latex": "$-\\frac{1}{2}$" },
+        { "key": "B", "latex": "$\\frac{1}{2}$" },
+        { "key": "C", "latex": "$-1$" },
+        { "key": "D", "latex": "$1$" }
+      ],
+      "myAnswer": "A", "correctAnswer": "A",
+      "knowledgePoints": ["连续的概念"], "kpSource": "inferred",
+      "reviewNote": "原图知识点标签被底部按钮完全遮挡，按题干推断。"
+    },
+    {
+      "id": "T3-04", "testNo": 3, "index": 4, "src": "Test3/Test3-4.jpg", "score": 10,
+      "stemLatex": "$\\lim\\limits_{x \\to \\infty} \\frac{3\\sin x}{x^2} =$",
+      "options": [
+        { "key": "A", "latex": "不存在" },
+        { "key": "B", "latex": "$-3$" },
+        { "key": "C", "latex": "$3$" },
+        { "key": "D", "latex": "$0$" }
+      ],
+      "myAnswer": "D", "correctAnswer": "D",
+      "knowledgePoints": ["有界量乘无穷小"], "kpSource": "app"
+    },
+    {
+      "id": "T3-05", "testNo": 3, "index": 5, "src": "Test3/Test3-5.jpg", "score": 10,
+      "stemLatex": "$$\\lim_{x \\to 0} \\frac{\\tan x - \\sin x}{\\tan^{3} x} = (\\quad)$$",
+      "options": [
+        { "key": "A", "latex": "$\\infty$" },
+        { "key": "B", "latex": "$\\frac{1}{2}$" },
+        { "key": "C", "latex": "$1$" },
+        { "key": "D", "latex": "$2$" }
+      ],
+      "myAnswer": "B", "correctAnswer": "B",
+      "knowledgePoints": ["等价替换"], "kpSource": "app"
+    },
+    {
+      "id": "T3-06", "testNo": 3, "index": 6, "src": "Test3/Test3-6.jpg", "score": 10,
+      "stemLatex": "极限 $\\lim\\limits_{x \\to \\infty}\\left(1+\\frac{1}{x}-\\frac{1}{x^2}\\right)^{x}$ 等于",
+      "options": [
+        { "key": "A", "latex": "$e$" },
+        { "key": "B", "latex": "$-e$" },
+        { "key": "C", "latex": "$1$" },
+        { "key": "D", "latex": "$e^{-1}$" }
+      ],
+      "myAnswer": "A", "correctAnswer": "A",
+      "knowledgePoints": ["重要极限"], "kpSource": "app"
+    },
+    {
+      "id": "T3-07", "testNo": 3, "index": 7, "src": "Test3/Test3-7.jpg", "score": 10,
+      "stemLatex": "$$\\lim_{x \\to \\frac{1}{2}} \\frac{1-4x^2}{2x-1} = \\quad (\\quad)$$",
+      "options": [
+        { "key": "A", "latex": "$-1$" },
+        { "key": "B", "latex": "$1$" },
+        { "key": "C", "latex": "$-2$" },
+        { "key": "D", "latex": "$0$" }
+      ],
+      "myAnswer": "C", "correctAnswer": "C",
+      "knowledgePoints": ["四则运算"], "kpSource": "app"
+    },
+    {
+      "id": "T3-08", "testNo": 3, "index": 8, "src": "Test3/Test3-8.jpg", "score": 10,
+      "stemLatex": "极限 $\\lim\\limits_{x \\to 1}(x-1)\\cot(x-1)$ 等于",
+      "options": [
+        { "key": "A", "latex": "$\\infty$" },
+        { "key": "B", "latex": "$0$" },
+        { "key": "C", "latex": "$-1$" },
+        { "key": "D", "latex": "$1$" }
+      ],
+      "myAnswer": "D", "correctAnswer": "D",
+      "knowledgePoints": ["等价替换"], "kpSource": "app"
+    },
+    {
+      "id": "T3-09", "testNo": 3, "index": 9, "src": "Test3/Test3-9.jpg", "score": 10,
+      "stemLatex": "设 $f(x)=(e^{2x}-1)(\\cos x-1)$，$g(x)=x^3+x^4$，则当 $x \\to 0$ 时，有（）",
+      "options": [
+        { "key": "A", "latex": "$f(x)$ 是比 $g(x)$ 高阶的无穷小" },
+        { "key": "B", "latex": "$f(x)$ 与 $g(x)$ 是等价无穷小" },
+        { "key": "C", "latex": "$f(x)$ 与 $g(x)$ 同阶但非等价无穷小" },
+        { "key": "D", "latex": "$f(x)$ 是比 $g(x)$ 低阶的无穷小" }
+      ],
+      "myAnswer": "B", "correctAnswer": "C",
+      "knowledgePoints": ["无穷小的阶"], "kpSource": "app"
+    },
+    {
+      "id": "T3-10", "testNo": 3, "index": 10, "src": "Test3/Test3-10.jpg", "score": 10,
+      "stemLatex": "$\\lim_{x \\to +\\infty} x\\left(\\sqrt{x^2+1}-x\\right)$ 等于",
+      "options": [
+        { "key": "A", "latex": "$\\infty$" },
+        { "key": "B", "latex": "$-\\frac{1}{2}$" },
+        { "key": "C", "latex": "$\\frac{1}{2}$" },
+        { "key": "D", "latex": "$0$" }
+      ],
+      "myAnswer": "C", "correctAnswer": "C",
+      "knowledgePoints": ["四则运算"], "kpSource": "app"
+    },
+    {
+      "id": "T5-01", "testNo": 5, "index": 1, "src": "Test5/Test5-1.jpg", "score": 10,
+      "stemLatex": "极限 $\\lim\\limits_{x \\to 0} \\frac{x \\ln(1+2x)}{1-\\cos x}$ 等于",
+      "options": [
+        { "key": "A", "latex": "$-4$" },
+        { "key": "B", "latex": "$2$" },
+        { "key": "C", "latex": "$3$" },
+        { "key": "D", "latex": "$4$" }
+      ],
+      "myAnswer": "D", "correctAnswer": "D",
+      "knowledgePoints": ["等价替换"], "kpSource": "app"
+    },
+    {
+      "id": "T5-02", "testNo": 5, "index": 2, "src": "Test5/Test5-2.jpg", "score": 10,
+      "stemLatex": "$$\\lim_{x \\to \\infty}\\left(1+\\frac{1}{x}+\\frac{1}{x^2}\\right)^{x}=(\\quad)$$",
+      "options": [
+        { "key": "A", "latex": "$e^{-1}$" },
+        { "key": "B", "latex": "$1$" },
+        { "key": "C", "latex": "$e$" },
+        { "key": "D", "latex": "$\\infty$" }
+      ],
+      "myAnswer": "C", "correctAnswer": "C",
+      "knowledgePoints": ["重要极限"], "kpSource": "app"
+    },
+    {
+      "id": "T5-03", "testNo": 5, "index": 3, "src": "Test5/Test5-3.jpg", "score": 10,
+      "stemLatex": "极限 $\\lim_{x \\to \\infty}\\left(2x\\sin\\frac{2}{x}+\\frac{\\arctan 3x}{x}\\right)$ 的值为（）",
+      "options": [
+        { "key": "A", "latex": "4" },
+        { "key": "B", "latex": "0" },
+        { "key": "C", "latex": "3" },
+        { "key": "D", "latex": "2" }
+      ],
+      "myAnswer": "A", "correctAnswer": "A",
+      "knowledgePoints": ["有界量乘无穷小", "等价替换"], "kpSource": "app"
+    },
+    {
+      "id": "T5-04", "testNo": 5, "index": 4, "src": "Test5/Test5-4.jpg", "score": 10,
+      "stemLatex": "$\\lim_{x \\to 0} \\frac{\\tan x - \\sin x}{\\tan^3 x} = \\quad (\\quad)$",
+      "options": [
+        { "key": "A", "latex": "$1$" },
+        { "key": "B", "latex": "$2$" },
+        { "key": "C", "latex": "$\\infty$" },
+        { "key": "D", "latex": "$\\frac{1}{2}$" }
+      ],
+      "myAnswer": "D", "correctAnswer": "D",
+      "knowledgePoints": ["等价替换"], "kpSource": "app"
+    },
+    {
+      "id": "T5-05", "testNo": 5, "index": 5, "src": "Test5/Test5-5.jpg", "score": 10,
+      "stemLatex": "设函数 $f(x)=\\begin{cases}(2-x)^{\\frac{1}{x-1}} & x<1\\\\ e^{-a} & x\\geq 1\\end{cases}$ 在点 $x=1$ 处连续,则 $a=(\\quad)$",
+      "options": [
+        { "key": "A", "latex": "$2$" },
+        { "key": "B", "latex": "$1$" },
+        { "key": "C", "latex": "$0$" },
+        { "key": "D", "latex": "$3$" }
+      ],
+      "myAnswer": "B", "correctAnswer": "B",
+      "knowledgePoints": ["连续的概念"], "kpSource": "app"
+    },
+    {
+      "id": "T5-06", "testNo": 5, "index": 6, "src": "Test5/Test5-6.jpg", "score": 10,
+      "stemLatex": "当 $x \\to 0$ 时，$x^2 + \\sqrt[3]{x}$ 是 $x$ 的几阶无穷小？",
+      "options": [
+        { "key": "A", "latex": "$\\frac{1}{6}$" },
+        { "key": "B", "latex": "$2$" },
+        { "key": "C", "latex": "$\\frac{1}{3}$" },
+        { "key": "D", "latex": "$\\frac{1}{2}$" }
+      ],
+      "myAnswer": "B", "correctAnswer": "C",
+      "knowledgePoints": ["无穷小的阶"], "kpSource": "inferred",
+      "reviewNote": "原图知识点标签内容不可见，按题干推断。"
+    },
+    {
+      "id": "T5-07", "testNo": 5, "index": 7, "src": "Test5/Test5-7.jpg", "score": 10,
+      "stemLatex": "极限 $\\lim\\limits_{x \\to +\\infty} \\frac{(3x+6)^{70}(8x-5)^{20}}{(5x-1)^{90}}$ 等于",
+      "options": [
+        { "key": "A", "latex": "不存在" },
+        { "key": "B", "latex": "0" },
+        { "key": "C", "latex": "$\\infty$" },
+        { "key": "D", "latex": "$\\frac{3^{70}8^{20}}{5^{90}}$" }
+      ],
+      "myAnswer": "D", "correctAnswer": "D",
+      "knowledgePoints": ["四则运算"], "kpSource": "app",
+      "reviewNote": "选项 D 分子第二个底数截图较模糊，辨认为 8。"
+    },
+    {
+      "id": "T5-08", "testNo": 5, "index": 8, "src": "Test5/Test5-8.jpg", "score": 10,
+      "stemLatex": "极限 $\\lim\\limits_{x \\to 7} \\frac{x^2 - 3x - 28}{x^2 - 5x - 14} =$",
+      "options": [
+        { "key": "A", "latex": "$\\frac{11}{9}$" },
+        { "key": "B", "latex": "$4$" },
+        { "key": "C", "latex": "$2$" },
+        { "key": "D", "latex": "$0$" }
+      ],
+      "myAnswer": "A", "correctAnswer": "A",
+      "knowledgePoints": ["四则运算"], "kpSource": "app"
+    },
+    {
+      "id": "T5-09", "testNo": 5, "index": 9, "src": "Test5/Test5-9.jpg", "score": 10,
+      "stemLatex": "函数 $f(x)=\\frac{1}{x}\\cos\\frac{1}{x}$ 在 $x=0$ 点的任何邻域内都是( )",
+      "options": [
+        { "key": "A", "latex": "有界的" },
+        { "key": "B", "latex": "单调减少的" },
+        { "key": "C", "latex": "无界的" },
+        { "key": "D", "latex": "单调增加的" }
+      ],
+      "myAnswer": "A", "correctAnswer": "C",
+      "knowledgePoints": ["极限定义与性质"], "kpSource": "app"
+    },
+    {
+      "id": "T5-10", "testNo": 5, "index": 10, "src": "Test5/Test5-10.jpg", "score": 10,
+      "stemLatex": "设 $f(x)=\\lim\\limits_{n \\to \\infty}\\frac{1+x}{1+x^{2n}}$，讨论 $f(x)$ 的间断点，其结论为（ ）",
+      "options": [
+        { "key": "A", "latex": "存在间断点 $x=-1$" },
+        { "key": "B", "latex": "不存在间断点" },
+        { "key": "C", "latex": "存在间断点 $x=1$" },
+        { "key": "D", "latex": "存在间断点 $x=0$" }
+      ],
+      "myAnswer": "B", "correctAnswer": "C",
+      "knowledgePoints": ["间断点"], "kpSource": "app"
+    }
+  ]
+}

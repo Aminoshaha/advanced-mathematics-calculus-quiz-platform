@@ -1,0 +1,38 @@
+{
+  "id": "T3-08",
+  "verdict": "ok",
+  "selfAnswer": "D",
+  "officialAnswer": "D",
+  "transcriptionIssues": [],
+  "keyIdea": "遇到 $x \\to a$ 的 $0 \\cdot \\infty$ 型极限，先换元把趋向点搬到 $0$（令 $t = x - a$），再把余切拆成 $\\dfrac{\\cos t}{\\sin t}$，用等价无穷小 $\\sin t \\sim t$ 与 $\\cos t \\to 1$ 求值。",
+  "steps": [
+    {
+      "title": "第一步：判断类型，先换元把趋向点搬到 0",
+      "content": "当 $x \\to 1$ 时 $x - 1 \\to 0$，而 $\\cot(x-1) = \\dfrac{\\cos(x-1)}{\\sin(x-1)} \\to +\\infty$（因为 $\\sin(x-1) \\to 0^{+}$ 的符号由左右两侧决定，绝对值上无界），所以这是 $0 \\cdot \\infty$ 型未定式。等价无穷小公式 $\\sin t \\sim t$、$\\cos t \\sim 1$ 都只在 $t \\to 0$ 时成立，而本题的自变量本身不是趋近于 $0$ 的，因此第一件事是换元 $t = x - 1$，把极限改写成 $\\lim\\limits_{t \\to 0} t\\cot t$。这样处理的好处是：接下来套用的每一个等价关系都恰好落在 $t \\to 0$ 的标准形式上，不必反复做 $x - 1$ 的平移换算。"
+    },
+    {
+      "title": "第二步：把 cot 拆开，化积为商",
+      "content": "关键是看出 $\\cot t$ 不能整体替换，但拆成 $\\dfrac{\\cos t}{\\sin t}$ 后分子分母各自都好处理：$$\\lim_{t \\to 0} t\\cot t = \\lim_{t \\to 0} \\frac{t\\cos t}{\\sin t}.$$ 这一步之所以必要，是因为 $\\cot t$ 自身在 $t \\to 0$ 时是无穷大，没有可用的等价无穷小；而写成商以后，分母 $\\sin t$ 与分子中的因子 $t$ 形成了可以直接约掉的同阶配对，$\\cos t$ 则退化为一个非零的普通因子。"
+    },
+    {
+      "title": "第三步：用等价无穷小与极限乘法法则求值",
+      "content": "在 $t \\to 0$ 时 $\\sin t \\sim t$，故 $\\dfrac{t}{\\sin t} \\to 1$；又 $\\cos t \\to \\cos 0 = 1$，而 $\\cos t \\neq 0$（当 $t$ 充分小时），于是可以拆成两个收敛因子的乘积：$$\\lim_{t \\to 0} \\frac{t\\cos t}{\\sin t} = \\left(\\lim_{t \\to 0} \\frac{t}{\\sin t}\\right)\\left(\\lim_{t \\to 0} \\cos t\\right) = 1 \\cdot 1 = 1.$$ 注意这里能拆成乘积，依据是极限乘法法则：两个因子的极限都存在且为有限值，所以 $1 \\cdot 1 = 1$。故原极限等于 $1$，选 D。"
+    }
+  ],
+  "optionNotes": [
+    {
+      "key": "A",
+      "note": "选 A（$\\infty$）的人是只盯着 $\\cot(x-1) \\to \\infty$，又误以为 $(x-1) \\to 0$ 之外还剩下什么“没被约掉”的量，于是认定 $0 \\cdot \\infty$ 就是无穷大。实际上 $0 \\cdot \\infty$ 是未定式，这里的两个因子恰好同阶——$\\sin t \\sim t$ 使 $\\dfrac{t}{\\sin t} \\to 1$，趋近速度相互抵消，结果是一个有限的非零常数，而不是无穷。"
+    },
+    {
+      "key": "B",
+      "note": "选 B（$0$）的人把未定式 $0 \\cdot \\infty$ 直接当成 $0$ 乘任何数都得 $0$，凭直觉把因子 $x - 1 \\to 0$ 当作主导结论。错误在于忽略了 $\\cot(x-1)$ 是无穷大因子：若两者同阶，乘积趋于非零常数。只有当 $x - 1$ 趋于 $0$ 的速度远快于 $\\dfrac{1}{\\sin(x-1)}$ 发散的速度时乘积才会趋于 $0$，而本题二者都是 $1$ 阶，并不存在这种“快慢差”。"
+    },
+    {
+      "key": "C",
+      "note": "选 C（$-1$）的人多半是想套 $\\cot t \\sim \\dfrac{1}{t}$，却把正负号搞错，或对 $\\cot t = \\dfrac{\\cos t}{\\sin t}$ 在 $t \\to 0^{-}$ 一侧的符号产生了混淆，误写出 $\\cot t \\sim -\\dfrac{1}{t}$。正确做法是：$\\cos t \\to 1 > 0$ 而 $\\sin t \\sim t$，故 $t\\cot t = \\dfrac{t\\cos t}{\\sin t} \\to 1 \\cdot 1 = 1$；分子分母中的 $t$ 与 $\\sin t$ 同号，符号自行抵消，极限为正的 $1$，不出现负号。"
+    }
+  ],
+  "pitfalls": "最典型的错误是把 $0 \\cdot \\infty$ 型未定式凭直觉判成 $0$ 或 $\\infty$，而不先化成分式。另一处高频失误是对 $\\cot$ 整体做等价替换（如写成 $\\cot t \\sim \\dfrac{1}{t}$ 时漏掉 $\\cos t$ 的影响、或搞错符号），以及忘记先换元 $t = x - 1$ 就直接在 $x \\to 1$ 下误用只在 $0$ 点附近成立的等价无穷小。",
+  "selfReasoning": ""
+}

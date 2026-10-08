@@ -1,0 +1,24 @@
+# 分发包、编译产物与下载的 SDK
+/dist/
+/build/
+/desktop/vendor/
+/desktop/验收结果.json
+*.spec
+
+# 本机记录、凭据与工具缓存
+__pycache__/
+*.py[cod]
+*.log
+.env
+.env.*
+!.env.example
+.vs/
+.vscode/
+node_modules/
+/qa/
+
+# 内部开发交接材料，公开仓库使用 README 与产品说明
+/README-HANDOFF.md
+/docs/HANDOFF-CHATGPT.md
+/docs/CODEX-REVIEW.md
+/docs/REVIEW-REQUEST.md

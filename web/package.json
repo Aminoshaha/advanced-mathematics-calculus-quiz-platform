@@ -1,0 +1,17 @@
+{
+  "name": "gaoshu-bank-web",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "高等数学题库 · 零依赖本地前端。没有任何 npm 依赖，无需 install；type=module 仅供 tools/ 下的 Node 校验脚本使用。",
+  "scripts": {
+    "build": "python build.py",
+    "serve": "python serve.py",
+    "check": "node tools/links-check.mjs && node tools/tex-check.mjs && node tools/render-check.mjs && python tools/scan-latex.py",
+    "check:links": "node tools/links-check.mjs",
+    "check:tex": "node tools/tex-check.mjs",
+    "check:render": "node tools/render-check.mjs",
+    "check:scan": "python tools/scan-latex.py",
+    "show": "node tools/show-render.mjs"
+  }
+}

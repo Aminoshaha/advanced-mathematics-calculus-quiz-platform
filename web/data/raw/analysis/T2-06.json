@@ -1,0 +1,38 @@
+{
+  "id": "T2-06",
+  "verdict": "ok",
+  "selfAnswer": "D",
+  "officialAnswer": "D",
+  "transcriptionIssues": [],
+  "keyIdea": "分段函数在分界点连续，本质是「右极限 = 函数值」的等式；识别特征是分子出现 $1-e^{\\square}$、分母出现反三角函数，用等价无穷小 $1-e^{u}\\sim-u$、$\\arcsin v\\sim v$ 一步化简。",
+  "steps": [
+    {
+      "title": "第一步：把「连续」翻译成极限等式，确定要求哪一侧的极限",
+      "content": "题给 $f(x)$ 在 $x=0$ 的右侧（$x>0$）用 $\\dfrac{1-e^{\\tan x}}{\\arcsin 2x}$，在 $x=0$ 及左侧（$x\\leq 0$）用 $ae^{4x}$。连续要求 $\\lim\\limits_{x\\to 0}f(x)=f(0)$，而 $f(0)$ 由 $x\\leq 0$ 那段决定：$f(0)=ae^{0}=a$。左极限 $\\lim\\limits_{x\\to 0^-}ae^{4x}=a$ 自动成立（$e^{4x}$ 连续），所以只剩一个待定条件：右极限必须也等于 $a$。关键是先算出 $\\lim\\limits_{x\\to 0^+}\\dfrac{1-e^{\\tan x}}{\\arcsin 2x}$，再令它等于 $a$。"
+    },
+    {
+      "title": "第二步：判断类型并选择合适的工具",
+      "content": "把 $x\\to 0^+$ 代入：$\\tan x\\to 0$ 故分子 $1-e^{\\tan x}\\to 0$；$\\arcsin 2x\\to 0$ 故分母 $\\to 0$。这是 $\\dfrac{0}{0}$ 型。这时不宜直接洛必达（求导后 $\\dfrac{-e^{\\tan x}\\sec^2 x}{2/\\sqrt{1-4x^2}}$ 反而更复杂），而应利用 $x\\to 0$ 时三个基本等价无穷小：$1-e^{u}\\sim -u\\ (u\\to 0)$、$\\tan x\\sim x$、$\\arcsin v\\sim v\\ (v\\to 0)$。识别特征就是「$1-e^{\\square}$」配「$\\arcsin\\triangle$」这种标准搭配。"
+    },
+    {
+      "title": "第三步：逐项替换并求出极限，反解 $a$",
+      "content": "对分子取 $u=\\tan x\\to 0$，得 $1-e^{\\tan x}\\sim -\\tan x\\sim -x$；对分母取 $v=2x\\to 0$，得 $\\arcsin 2x\\sim 2x$。由于两者都是 $x\\to 0^+$ 时的等价无穷小，可直接替换（商的极限）：$$\\lim_{x\\to 0^+}\\frac{1-e^{\\tan x}}{\\arcsin 2x}=\\lim_{x\\to 0^+}\\frac{-\\tan x}{2x}=-\\frac{1}{2}\\cdot 1=-\\frac{1}{2}.$$ 连续条件给出 $a=-\\dfrac{1}{2}$，对应选项 D。（也可用洛必达验证：$\\dfrac{-e^{\\tan x}\\sec^2x}{2/\\sqrt{1-4x^2}}\\Big|_{x\\to 0}=\\dfrac{-1\\cdot 1}{2}=-\\dfrac12$，与等价无穷小结论一致。）"
+    }
+  ],
+  "optionNotes": [
+    {
+      "key": "A",
+      "note": "选 A 的人只算了绝对值：把分子当成 $e^{\\tan x}-1\\sim \\tan x\\sim x$，忽略 $1-e^{u}\\sim -u$ 中的负号，于是得到 $\\dfrac{x}{2x}=\\dfrac12$。注意分子是「$1$ 减指数」而不是「指数减 $1$」，符号必须为负。"
+    },
+    {
+      "key": "B",
+      "note": "选 B 的人只保留了负号而丢掉了分母的系数 2：误用 $\\arcsin 2x\\sim x$（漏乘 $2$，忘记 $\\arcsin v\\sim v$ 时 $v$ 要整体代入），于是得到 $-\\dfrac{\\tan x}{x}=-1$。"
+    },
+    {
+      "key": "C",
+      "note": "选 C 的人把上面两个错误同时犯了一次：既漏掉分子负号又漏掉分母的 $2$，或干脆把 $1-e^{\\tan x}$ 与 $\\arcsin 2x$ 直接当成同阶量相消为 $1$，属于完全没做等价替换的猜测。"
+    }
+  ],
+  "pitfalls": "两个典型错误：一是记错指数型等价无穷小的方向，把 $1-e^{u}\\sim -u$ 写成 $1-e^{u}\\sim u$（正负号弄反）；二是替换分母时只换函数不换自变量，把 $\\arcsin 2x\\sim 2x$ 误写成 $\\arcsin 2x\\sim x$，漏掉系数 $2$。此外还要认清 $f(0)$ 取的是 $x\\leq 0$ 那一支，即 $f(0)=a$（从而左极限自动等于 $a$），不要误用 $x>0$ 的表达式去算 $f(0)$。",
+  "selfReasoning": ""
+}

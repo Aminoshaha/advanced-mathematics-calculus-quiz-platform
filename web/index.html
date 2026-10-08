@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <title>高等数学题库</title>
+    <link rel="stylesheet" href="assets/macos.css" />
+    <link rel="stylesheet" href="assets/app.css" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ctext y='19' font-size='19'%3E%E2%88%AB%3C/text%3E%3C/svg%3E"
+    />
+  </head>
+  <body>
+    <div class="window">
+      <!-- 标题栏 -->
+      <header class="titlebar">
+        <div class="traffic-lights">
+          <button class="tl tl--close" type="button" aria-label="关闭"></button>
+          <button class="tl tl--min" type="button" aria-label="收起侧边栏"></button>
+          <button class="tl tl--zoom" type="button" aria-label="全屏"></button>
+        </div>
+
+        <div class="titlebar__title" id="titlebar-title">高等数学题库</div>
+
+        <div class="titlebar__spacer"></div>
+
+        <div class="titlebar__actions">
+          <button
+            class="btn btn--sm btn--plain btn--icon"
+            id="theme-btn"
+            type="button"
+            title="切换外观（跟随系统 / 浅色 / 深色）"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              width="15"
+              height="15"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="12" cy="12" r="4"></circle>
+              <path
+                d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      <!-- 主体 -->
+      <div class="window__body">
+        <nav class="sidebar scroll" id="sidebar"></nav>
+        <main class="content" id="content"></main>
+      </div>
+
+      <div id="toast-host" class="toast hidden"></div>
+    </div>
+
+    <script type="module" src="js/app.js"></script>
+  </body>
+</html>

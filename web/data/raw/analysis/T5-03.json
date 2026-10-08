@@ -1,0 +1,42 @@
+{
+  "id": "T5-03",
+  "verdict": "ok",
+  "selfAnswer": "A",
+  "officialAnswer": "A",
+  "transcriptionIssues": [],
+  "keyIdea": "把极限拆成两项分别处理：一项用等价无穷小 $\\sin t \\sim t$ 把 $x\\sin\\frac{2}{x}$ 化为常数，另一项用『有界量乘无穷小』直接判为 $0$，核心识别特征是括号内两项的类型完全不同。",
+  "steps": [
+    {
+      "title": "第一步：判断类型，拆项",
+      "content": "和式求极限可以先逐项分析：$\\lim_{x\\to\\infty}\\left(2x\\sin\\frac{2}{x}+\\frac{\\arctan 3x}{x}\\right)$ 中两项的结构不一样——第一项是 $\\infty\\cdot 0$ 型的不定式，不能直接说它趋于 $0$；第二项是『有界量除以无穷大』，不是不定式。因此要把两项分开处理，各自用合适的工具，而不是整体硬套一个方法。"
+    },
+    {
+      "title": "第二步：用等价无穷小处理第一项",
+      "content": "当 $x\\to\\infty$ 时 $\\frac{2}{x}\\to 0$，令 $t=\\frac{2}{x}$，则 $t\\to 0$，可用等价无穷小 $\\sin t\\sim t$。于是 $2x\\sin\\frac{2}{x}\\sim 2x\\cdot\\frac{2}{x}=4$，即第一项极限为 $4$。这里的关键是：$\\sin\\frac{2}{x}$ 趋于 $0$ 的速度恰好与 $\\frac{2}{x}$ 相当，所以乘以 $x$ 后不是 $0$ 而是一个确定的常数。"
+    },
+    {
+      "title": "第三步：用『有界量乘无穷小』处理第二项",
+      "content": "当 $x\\to\\infty$ 时 $\\arctan 3x$ 有界（$|\\arctan 3x|<\\frac{\\pi}{2}$），而 $\\frac{1}{x}\\to 0$ 是无穷小，所以 $\\frac{\\arctan 3x}{x}=\\arctan 3x\\cdot\\frac{1}{x}\\to 0$。注意 $x\\to\\infty$ 也可理解为 $x\\to -\\infty$：此时 $\\arctan 3x\\to -\\frac{\\pi}{2}$ 仍有界，分母 $x\\to -\\infty$，商同样趋于 $0$，结论不受影响。"
+    },
+    {
+      "title": "第四步：合并结果并对照选项",
+      "content": "两项极限都存在，故原式 $=4+0=4$，选 $A$。"
+    }
+  ],
+  "optionNotes": [
+    {
+      "key": "B",
+      "note": "选 $B$ 的人看到 $\\sin\\frac{2}{x}\\to 0$ 就断定 $2x\\sin\\frac{2}{x}\\to 0$，忽略了前面的因子 $x\\to\\infty$。这是 $\\infty\\cdot 0$ 型不定式，必须用等价无穷小 $\\sin\\frac{2}{x}\\sim\\frac{2}{x}$ 化成 $2x\\cdot\\frac{2}{x}=4$ 才能定值；把『$\\sin$ 趋于 $0$』直接当成整项趋于 $0$ 是典型的漏掉无穷大量阶数比较的错误。"
+    },
+    {
+      "key": "C",
+      "note": "选 $C$ 的人多半是把 $\\arctan 3x$ 中的系数 $3$ 误当成极限值贡献了 $3$，或以为第二项 $\\frac{\\arctan 3x}{x}$ 的极限是 $3$。实际上 $\\arctan 3x$ 只是有界量，被无穷大 $x$ 除以后趋于 $0$，它与 $\\arctan x$、$\\arctan 5x$ 的结果完全一样，都不影响本题答案。"
+    },
+    {
+      "key": "D",
+      "note": "选 $D$ 的人通常只算出了第一项的一部分：把 $2x\\sin\\frac{2}{x}$ 中的等价替换 $\\sin\\frac{2}{x}\\sim\\frac{2}{x}$ 做完后漏乘了系数 $2$，得到 $2$ 而非 $4$；也有人把极限符号下的 $x$ 与 $\\frac{2}{x}$ 的分子 $2$ 混淆，把 $2x\\cdot\\frac{2}{x}$ 算成 $2$。逐项代换后应完整保留常数因子，$2\\cdot 2=4$。"
+    }
+  ],
+  "pitfalls": "最典型的错误是把 $\\infty\\cdot 0$ 型的 $2x\\sin\\frac{2}{x}$ 直接判为 $0$（从而错选 $B$），根源是没有识别出这是不定式、必须用等价无穷小 $\\sin t\\sim t$ 比较阶数；另一个常见错误是把有界量 $\\arctan 3x$ 的系数或性质误当成极限值（错选 $C$）。",
+  "selfReasoning": ""
+}

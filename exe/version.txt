@@ -1,0 +1,29 @@
+# PyInstaller 版本资源
+# 让 exe 的「属性 → 详细信息」里显示正常的名称与版本，而不是默认的空白
+VSVersionInfo(
+  ffi=FixedFileInfo(
+    filevers=(1, 0, 0, 0),
+    prodvers=(1, 0, 0, 0),
+    mask=0x3f,
+    flags=0x0,
+    OS=0x40004,
+    fileType=0x1,
+    subtype=0x0,
+    date=(0, 0)
+  ),
+  kids=[
+    StringFileInfo([
+      StringTable(
+        u'080404B0',
+        [StringStruct(u'CompanyName', u'本地题库'),
+         StringStruct(u'FileDescription', u'高等数学题库 · 极限章节（本地离线版）'),
+         StringStruct(u'FileVersion', u'1.0.0.0'),
+         StringStruct(u'InternalName', u'GaoshuBank'),
+         StringStruct(u'LegalCopyright', u'仅供本地个人学习使用'),
+         StringStruct(u'OriginalFilename', u'高等数学题库.exe'),
+         StringStruct(u'ProductName', u'高等数学题库'),
+         StringStruct(u'ProductVersion', u'1.0.0.0')])
+    ]),
+    VarFileInfo([VarStruct(u'Translation', [2052, 1200])])
+  ]
+)
