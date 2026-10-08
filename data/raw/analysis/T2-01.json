@@ -1,0 +1,56 @@
+{
+  "id": "T2-01",
+  "question": {
+    "id": "T2-01",
+    "testNo": 2,
+    "index": 1,
+    "src": "Test2/Test2-1.jpg",
+    "score": 10,
+    "stemLatex": "$$\\lim_{x\\to 0}\\frac{\\arctan 3x}{2x}=$$",
+    "options": [
+      { "key": "A", "latex": "$0$" },
+      { "key": "B", "latex": "$\\dfrac{3}{2}$" },
+      { "key": "C", "latex": "$\\infty$" },
+      { "key": "D", "latex": "$1$" }
+    ],
+    "myAnswer": "B",
+    "correctAnswer": "B",
+    "knowledgePoints": ["等价替换"],
+    "kpSource": "app"
+  },
+  "verdict": "ok",
+  "selfAnswer": "B",
+  "officialAnswer": "B",
+  "transcriptionIssues": [],
+  "keyIdea": "当 $x\\to 0$ 时 $\\arctan 3x\\sim 3x$，用等价无穷小替换把 $\\arctan$ 型极限化为一次比，或直接用重要极限 $\\lim_{t\\to 0}\\frac{\\arctan t}{t}=1$。",
+  "steps": [
+    {
+      "title": "识别极限类型",
+      "content": "当 $x\\to 0$ 时分子 $\\arctan 3x\\to \\arctan 0=0$，分母 $2x\\to 0$，故为 $\\frac{0}{0}$ 型未定式，可用等价无穷小替换或洛必达法则。"
+    },
+    {
+      "title": "等价无穷小替换",
+      "content": "由常用等价无穷小 $\\arctan u\\sim u$（$u\\to 0$）。取 $u=3x$，因 $x\\to 0$ 时 $3x\\to 0$，故 $\\arctan 3x\\sim 3x$。"
+    },
+    {
+      "title": "代入求值",
+      "content": "$$\\lim_{x\\to 0}\\frac{\\arctan 3x}{2x}=\\lim_{x\\to 0}\\frac{3x}{2x}=\\frac{3}{2}.$$"
+    },
+    {
+      "title": "另解（洛必达法则）",
+      "content": "对 $\\frac{0}{0}$ 型用洛必达法则：$$\\lim_{x\\to 0}\\frac{\\arctan 3x}{2x}\\xlongequal{\\text{L'H}}\\lim_{x\\to 0}\\frac{\\dfrac{3}{1+9x^{2}}}{2}=\\frac{3}{2}.$$ 与等价替换结果一致。"
+    },
+    {
+      "title": "得出结论",
+      "content": "极限值为 $\\frac{3}{2}$，对应选项 B，与 App 给出的正确答案和我的答案（绿色 ✓）一致。"
+    }
+  ],
+  "optionNotes": [
+    { "key": "A", "note": "误认为分子有界而分母趋于 0 或把 $\\frac{0}{0}$ 型当作 0；$\\arctan 3x$ 与 $3x$ 同阶，并非高阶无穷小，极限不为 $0$。" },
+    { "key": "B", "note": "正确。等价替换 $\\arctan 3x\\sim 3x$ 得 $\\frac{3x}{2x}=\\frac{3}{2}$。" },
+    { "key": "C", "note": "误以为分母趋于 0 则整体无限增大；实际上分子与分母同阶趋于 0，比值趋于有限常数。" },
+    { "key": "D", "note": "遗漏了分子中的系数 3（只用了 $\\arctan 3x\\sim 3x$ 之外的错误代换，如误写为 $\\arctan 3x\\sim x$）；系数须一并保留，答案为 $\\frac{3}{2}$ 而非 $1$。" }
+  ],
+  "pitfalls": "常见错误有三类：一是把 $\\arctan 3x$ 的等价无穷小记成 $x$ 而非 $3x$，丢掉系数得 $1$（选 D）；二是看到分母含 $x$ 就断定极限为 $0$ 或 $\\infty$（选 A 或 C）；三是使用等价替换时忘记替换必须在乘除因子中进行（本题分子分母均为独立因子，替换合法）。牢记 $\\arctan u\\sim\\arcsin u\\sim\\tan u\\sim\\sin u\\sim u$（$u\\to 0$），系数要随 $u$ 一起保留。",
+  "selfReasoning": "独立求解：极限为 $\\frac{0}{0}$ 型，由 $\\arctan u\\sim u$ 得 $\\arctan 3x\\sim 3x$，故原式 $=\\frac{3x}{2x}=\\frac{3}{2}$，选 B。用洛必达法则复核（分子导数 $\\frac{3}{1+9x^2}\\to 3$，分母导数 $2$）同样得 $\\frac{3}{2}$，两种方法结果一致，确认无计算失误。与 App 标注的正确答案 B 以及我的答案 B（绿色对勾，得分 10 分）完全一致，故判定 verdict 为 ok。"
+}

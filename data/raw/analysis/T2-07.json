@@ -1,0 +1,46 @@
+{
+  "id": "T2-07",
+  "verdict": "ok",
+  "selfAnswer": "D",
+  "officialAnswer": "D",
+  "transcriptionIssues": [],
+  "keyIdea": "把给定的极限语言陈述与标准定义互推：只需看出误差控制从 $\\varepsilon$ 放宽为 $2\\varepsilon$、且 $\\varepsilon$ 只取 $(0,1)$ 中的值，都只是对正数做了常数倍缩放，不改变“任意小”的本质，因此是充要条件。",
+  "steps": [
+    {
+      "title": "第一步：弄清题目问的是什么",
+      "content": "题目给了一个关于数列 $\\{x_n\\}$ 的陈述 (P)：对任意给定的 $\\varepsilon \\in (0,1)$，总存在正整数 $N$，当 $n \\ge N$ 时恒有 $|x_n - a| \\le 2\\varepsilon$。要判断 (P) 是“$\\{x_n\\}$ 收敛于 $a$”的什么条件，就必须分别检验两个方向：收敛能否推出 (P)（必要性），(P) 能否推出收敛（充分性）。两个方向都成立才选 D。识别特征：这类题本质是在考 $\\varepsilon\\text{-}N$ 定义中“任意小的正数”这句话的等价变形能力。"
+    },
+    {
+      "title": "第二步：检验必要性——由收敛推出 (P)",
+      "content": "设 $x_n \\to a$，即对任意 $\\varepsilon_0 > 0$，存在 $N$，当 $n \\ge N$ 时 $|x_n - a| < \\varepsilon_0$。现在任取 $\\varepsilon \\in (0,1)$，它当然是一个正数，直接把定义中的 $\\varepsilon_0$ 取成这个 $\\varepsilon$，就得到某个 $N$，使得 $n \\ge N$ 时 $|x_n - a| < \\varepsilon \\le 2\\varepsilon$。这正是 (P) 的要求，故 (P) 是必要条件。"
+    },
+    {
+      "title": "第三步：检验充分性——由 (P) 推出收敛",
+      "content": "设 (P) 成立，要证 $x_n \\to a$。任取 $\\varepsilon' > 0$，需要找到 $N$ 使 $n \\ge N$ 时 $|x_n - a| \\le \\varepsilon'$。取 $\\varepsilon = \\min\\left\\{\\dfrac{\\varepsilon'}{2},\\ \\dfrac{1}{2}\\right\\}$，则 $\\varepsilon \\in (0,1)$，可以代入 (P)（这正是限定 $\\varepsilon \\in (0,1)$ 不造成损失的关键：$\\varepsilon'$ 无论多小，$\\varepsilon'/2$ 都落在 $(0,1)$ 内）。由 (P) 得某 $N$，当 $n \\ge N$ 时 $|x_n - a| \\le 2\\varepsilon \\le 2 \\cdot \\dfrac{\\varepsilon'}{2} = \\varepsilon'$。由 $\\varepsilon'$ 的任意性，$x_n \\to a$，(P) 是充分条件。"
+    },
+    {
+      "title": "第四步：下结论",
+      "content": "两个方向都成立，所以 (P) 既充分又必要，即 $\\{x_n\\}$ 收敛于 $a$ 的充分必要条件，选 D。核心认识是：把误差上界由 $\\varepsilon$ 换成 $2\\varepsilon$、把 $\\varepsilon$ 的取值范围由 $(0,+\\infty)$ 缩小为 $(0,1)$，都只是对正数作常数倍缩放与限制在有限区间内取值，而 $2\\varepsilon$ 当 $\\varepsilon \\in (0,1)$ 时仍能取遍 $(0,2)$ 中的一切值，覆盖了“任意小的正数”，因此定义的效力完全没有减弱。"
+    }
+  ],
+  "optionNotes": [
+    {
+      "key": "A",
+      "note": "为什么会选到 A：看到陈述里 $\\varepsilon$ 被限制在 $(0,1)$、误差被放宽到 $2\\varepsilon$，就直觉认为它比标准定义“弱”，只能由收敛推出、不能推出收敛，于是判为必要而不充分。而实际上这种“弱”只是表面上的：任给 $\\varepsilon' > 0$，取 $\\varepsilon = \\min\\{\\varepsilon'/2,\\ 1/2\\}$ 就能把 $2\\varepsilon \\le \\varepsilon'$ 追回来，误差仍可任意小，所以充分性同样成立。"
+    },
+    {
+      "key": "B",
+      "note": "为什么会选到 B：注意到了 $2\\varepsilon$ 可以“换算”成任意小，就以为该陈述比标准定义更容易满足、能推出收敛；却忽略了收敛数列本身就满足它——对任意 $\\varepsilon \\in (0,1)$ 直接用标准定义即可得 $|x_n - a| < \\varepsilon \\le 2\\varepsilon$。把显然成立的必要性方向漏掉了。"
+    },
+    {
+      "key": "C",
+      "note": "为什么会选到 C：认为 $\\varepsilon$ 限定在 $(0,1)$ 破坏了“任意小”、$2\\varepsilon$ 又破坏了“误差可控”，两头都不成立，于是草率判为既非充分又非必要。而实际上该陈述与标准定义严格等价，两个方向都成立，属于对 $\\varepsilon\\text{-}N$ 定义中“常数倍缩放不影响极限”这一基本事实不熟悉。"
+    },
+    {
+      "key": "D",
+      "note": "正确选项。关键判断：$\\varepsilon \\in (0,1)$ 与 $\\le 2\\varepsilon$ 都只是常数级别的限制与缩放，等价于标准定义，故为充分必要条件。"
+    }
+  ],
+  "pitfalls": "最典型的错误是把 $\\varepsilon \\in (0,1)$ 和 $\\le 2\\varepsilon$ 当成对标准 $\\varepsilon\\text{-}N$ 定义的“实质削弱”，从而漏判某一个方向。要牢记：极限定义中 $\\varepsilon$ 只起“任意小正数”的作用，把 $\\varepsilon$ 换成 $c\\varepsilon$（$c$ 为非零常数）或只对足够小的 $\\varepsilon$ 作要求，都不改变定义；判断时必须老老实实把两个方向各推一遍，而不是凭“看起来更弱”下结论。另一个易错点是把 $\\le$ 与 $<$ 的区别当成关键——在极限定义中二者可以互相推出，不影响结论。",
+  "selfReasoning": ""
+}

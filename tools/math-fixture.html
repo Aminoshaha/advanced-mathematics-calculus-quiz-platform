@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <title>公式排版测试</title>
+    <link rel="stylesheet" href="../assets/macos.css" />
+    <link rel="stylesheet" href="../assets/app.css" />
+    <style>
+      body {
+        overflow: auto;
+        background: var(--bg-content);
+        padding: 26px 30px 60px;
+      }
+      .win {
+        position: static;
+        box-shadow: none;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 22px 24px 30px;
+        background: var(--bg-content);
+      }
+      h2 {
+        font-size: 13px;
+        color: var(--text-3);
+        margin: 26px 0 10px;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+      }
+      h2:first-child {
+        margin-top: 0;
+      }
+      .para {
+        font-size: 13.5px;
+        line-height: 1.9;
+        color: var(--text-2);
+      }
+      .stem {
+        font-size: 15.5px;
+        line-height: 1.95;
+      }
+      .box {
+        padding: 9px 12px;
+        border-radius: 8px;
+        background: var(--bg-inset);
+        margin-bottom: 9px;
+      }
+      /* 备选方案：行内分式整体缩小（TeX 的 \tfrac 思路） */
+      .compact .tex-inline .tex-frac__n,
+      .compact .tex-inline .tex-frac__d {
+        font-size: 0.86em;
+      }
+      #report {
+        font: 12px/1.6 ui-monospace, Consolas, monospace;
+        white-space: pre;
+        background: var(--bg-inset);
+        padding: 14px;
+        border-radius: 8px;
+        overflow-x: auto;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="win">
+      <h2>一、题干环境（15.5px / line-height 1.95）</h2>
+      <div class="stem" id="stems"></div>
+
+      <h2>二、解析正文环境（13.5px / line-height 1.9）</h2>
+      <div class="para" id="paras"></div>
+
+      <h2>二·对照　行内分式缩小到 0.86em（\tfrac 思路）</h2>
+      <div class="para compact" id="parasCompact"></div>
+
+      <h2>三、干扰项说明</h2>
+      <div id="notes"></div>
+
+      <h2>四、各类结构横向对照</h2>
+      <div class="para" id="gallery"></div>
+
+      <h2>五、客观测量（数值由 getBoundingClientRect 实测）</h2>
+      <pre id="report">measuring…</pre>
+      <div id="measure" class="para"></div>
+    </div>
+
+    <script type="module">
+      import Tex from "../js/tex.js";
+
+      const STEMS = [
+        "极限 $\\lim_{x \\to \\infty} x\\sin\\frac{2x}{x^{2}+1}$ 等于",
+        "设函数 $f(x)=\\begin{cases}\\dfrac{1-e^{\\tan x}}{\\arcsin 2x}, & x>0\\\\ ae^{4x}, & x\\leq 0\\end{cases}$ 在 $x=0$ 处连续，则 $a$ 等于",
+        "$\\lim_{x \\to 0} \\frac{x \\ln(1+2x)}{1-\\cos x}$ 等于",
+        "设 $f(x)=\\dfrac{x^{2}-4}{x-2}e^{-\\frac{1}{x-2}}$，则",
+      ];
+
+      const PARAS = [
+        "对化简后的式子分段替换：$1-\\cos x \\sim \\frac{x^2}{2}$（二阶），$\\sin^2 x \\sim x^2$（二阶），而 $\\cos^2 x \\to 1$ 是极限为 1 的因子，可直接取 1。于是",
+        "可以看到分子整体确实是三阶无穷小 $\\tan x-\\sin x \\sim \\frac{x^3}{2}$，与分母 $\\tan^3 x \\sim x^3$ 同阶，故比值趋于非零常数，而不是 $0$ 或 $\\infty$。",
+        "为确认无误，用展开复核：$\\tan x = x + \\frac{x^3}{3} + o(x^3)$，$\\sin x = x - \\frac{x^3}{6} + o(x^3)$，相减得 $\\tan x - \\sin x = \\frac{x^3}{2} + o(x^3)$；又 $\\tan^3 x \\sim x^3$。故原极限 $= \\frac{\\frac{x^3}{2}}{x^3} = \\frac{1}{2}$，与等价无穷小法一致。",
+        "于是 $\\lim_{x \\to 0} \\frac{\\sin x}{x} = 1$，而 $\\lim\\limits_{n \\to \\infty}\\left(1+\\frac{1}{n}\\right)^{n} = e$，两者都常用。",
+      ];
+
+      const NOTES = [
+        "选 A 的人把 $\\frac{0}{0}$ 型误当成『分母趋于 0、分子趋于非零常数』，或者只注意到分母是三阶无穷小就以为分母『小得多』，从而断定比值无界趋于 $\\infty$。",
+        "选 C 的人通常是把 $1-\\cos x$ 的等价无穷小记成了 $x^2$（丢掉系数 $\\frac{1}{2}$），于是算出 $\\frac{x^2}{x^2}=1$。",
+        "选 D 的人是系数弄反：把 $1-\\cos x \\sim \\frac{x^2}{2}$ 误记成 $1-\\cos x \\sim 2x^2$，于是得到 2。",
+      ];
+
+      const GALLERY = [
+        "分式：$\\frac{a}{b}$、$\\frac{1}{2}$、$\\frac{x^2}{2}$、嵌套 $\\frac{\\frac{1}{2}}{\\frac{3}{4}}$",
+        "极限：$\\lim_{x \\to 0} f(x)$、$\\lim\\limits_{n\\to\\infty} a_n$、$\\lim_{x \\to +\\infty}\\frac{1}{x}$",
+        "根式：$\\sqrt{x}$、$\\sqrt{x^2+1}$、$\\sqrt[3]{(1-x)(1+x)}$、$\\sqrt{\\frac{x^2+1}{x}}$",
+        "上下标：$x^2$、$x_n$、$x_n^2$、$e^{x^2}$、$2^{x}$",
+        "大算子：$\\sum_{n=1}^{\\infty}\\frac{1}{n^2}$、$\\int_0^1 x\\,dx$",
+        "标注：$\\xlongequal{\\text{等价替换}} \\frac{1}{2}$、$\\xrightarrow{\\text{洛必达}} 0$",
+        "分段：$f(x)=\\begin{cases} x^2, & x>0 \\\\ -x, & x\\le 0 \\end{cases}$",
+        "希腊与符号：$\\varepsilon \\in (0,1)$、$\\forall n \\in \\mathbb{N}$、$\\alpha \\le \\beta \\ne \\infty$、$\\{x_n\\} \\to a$",
+        "函数名：$\\sin x$、$\\arcsin 2x$、$\\ln(1+x^2)$、$\\arctan 3x$、$\\cot(x-1)$",
+      ];
+
+      const $ = (id) => document.getElementById(id);
+      const p = (s) => `<p style="margin:0 0 14px">${Tex.text(s)}</p>`;
+      $("stems").innerHTML = STEMS.map(p).join("");
+      $("paras").innerHTML = PARAS.map(p).join("");
+      $("parasCompact").innerHTML = PARAS.map(p).join("");
+      $("notes").innerHTML = NOTES.map(
+        (s) => `<div class="box"><span style="font-size:13px">${Tex.text(s)}</span></div>`
+      ).join("");
+      $("gallery").innerHTML = GALLERY.map(
+        (s) => `<p style="margin:0 0 18px">${Tex.text(s)}</p>`
+      ).join("");
+
+      /* ================= 客观测量 ================= */
+
+      /** 在元素内插入一个 0 高度 inline-block 探针，其 bottom 即该处基线 */
+      function baselineOf(el) {
+        const probe = document.createElement("span");
+        probe.style.cssText =
+          "display:inline-block;width:0;height:0;vertical-align:baseline;overflow:hidden";
+        el.appendChild(probe);
+        const y = probe.getBoundingClientRect().bottom;
+        probe.remove();
+        return y;
+      }
+
+      function centerOf(el) {
+        const r = el.getBoundingClientRect();
+        return r.top + r.height / 2;
+      }
+
+      const measureHost = $("measure");
+      const rows = [];
+
+      function caseLine(src, cls) {
+        const d = document.createElement("div");
+        d.style.cssText = "white-space:nowrap;font-size:13.5px;line-height:1.9";
+        if (cls) d.className = cls;
+        d.innerHTML = "中文参照 " + Tex.text("$" + src + "$") + " 后接文字";
+        measureHost.appendChild(d);
+        return d;
+      }
+
+      function plainLineHeight() {
+        const d = document.createElement("div");
+        d.style.cssText = "white-space:nowrap;font-size:13.5px;line-height:1.9";
+        d.textContent = "中文参照 文字 后接文字";
+        measureHost.appendChild(d);
+        return d.getBoundingClientRect().height;
+      }
+
+      const PLAIN_H = plainLineHeight();
+
+      function measure(label, src, fn) {
+        const d = caseLine(src);
+        const base = baselineOf(d);
+        const fs = parseFloat(getComputedStyle(d).fontSize);
+        const axis = base - 0.25 * fs; // 数学轴应在基线之上 0.25em
+        const lineH = d.getBoundingClientRect().height;
+        let detail = "";
+        let ok = null;
+        try {
+          const r = fn(d, base, axis, fs);
+          detail = r.detail;
+          ok = r.ok;
+        } catch (e) {
+          detail = "测量失败: " + e.message;
+          ok = null;
+        }
+        rows.push({
+          label,
+          detail,
+          ok,
+          extra: lineH > PLAIN_H + 0.5 ? `行高 +${(lineH - PLAIN_H).toFixed(1)}px` : "行高不变",
+        });
+      }
+
+      const F = (x) => (x >= 0 ? "+" : "") + x.toFixed(2);
+
+      measure("分式 \\frac{x^2}{2}", "\\frac{x^2}{2}", (d, base, axis, fs) => {
+        const bar = d.querySelector(".tex-frac__d").getBoundingClientRect().top;
+        const off = bar - axis;
+        return { detail: `分数线相对数学轴 ${F(off)}px`, ok: Math.abs(off) < 1.5 };
+      });
+
+      measure("嵌套分式 \\frac{\\frac{x^3}{2}}{x^3}", "\\frac{\\frac{x^3}{2}}{x^3}", (d, base, axis) => {
+        const bar = d.querySelector(".tex-frac__d").getBoundingClientRect().top;
+        const off = bar - axis;
+        return { detail: `分数线相对数学轴 ${F(off)}px`, ok: Math.abs(off) < 3 };
+      });
+
+      measure("极限算子 \\lim_{x\\to 0}", "\\lim_{x \\to 0} f(x)", (d, base) => {
+        const m = d.querySelector(".tex-lim__m");
+        const off = baselineOf(m) - base;
+        return { detail: `lim 基线相对正文基线 ${F(off)}px`, ok: Math.abs(off) < 1 };
+      });
+
+      measure("带 \\limits 的极限", "\\lim\\limits_{n\\to\\infty} a_n", (d, base) => {
+        const m = d.querySelector(".tex-lim__m");
+        const off = baselineOf(m) - base;
+        return { detail: `lim 基线相对正文基线 ${F(off)}px`, ok: Math.abs(off) < 1 };
+      });
+
+      measure("求和 \\sum_{n=1}^{\\infty}", "\\sum_{n=1}^{\\infty} \\frac{1}{n^2}", (d, base, axis) => {
+        const m = d.querySelector(".tex-lim__m");
+        const off = centerOf(m) - axis;
+        return { detail: `∑ 中心相对数学轴 ${F(off)}px`, ok: Math.abs(off) < 2.5 };
+      });
+
+      measure("根式 \\sqrt{x^2+1}", "\\sqrt{x^2+1}", (d, base) => {
+        const rad = d.querySelector(".tex-sqrt__r").getBoundingClientRect();
+        const body = d.querySelector(".tex-sqrt__b").getBoundingClientRect();
+        const off = body.top - rad.top;
+        return { detail: `被开方数顶边与根号顶边相差 ${F(off)}px`, ok: Math.abs(off) < 3 };
+      });
+
+      measure("标注 \\xlongequal{等价替换}", "\\xlongequal{\\text{等价替换}} \\frac{1}{2}", (d, base) => {
+        const b = d.querySelector(".tex-stack__b");
+        const off = baselineOf(b) - base;
+        return { detail: `等号基线相对正文基线 ${F(off)}px`, ok: Math.abs(off) < 1.5 };
+      });
+
+      measure("分段函数 \\begin{cases}", "\\begin{cases} x^2, & x>0 \\\\ -x, & x\\le 0 \\end{cases}", (d, base, axis) => {
+        const c = d.querySelector(".tex-cases");
+        const off = centerOf(c) - axis;
+        return { detail: `分段块中心相对数学轴 ${F(off)}px`, ok: Math.abs(off) < 4 };
+      });
+
+      measure("上下标堆叠 x_n^2", "x_n^2", (d, base) => {
+        const b = d.querySelector(".tex-script2");
+        const off = baselineOf(b) - base;
+        return { detail: `底数基线相对正文基线 ${F(off)}px`, ok: Math.abs(off) < 1 };
+      });
+
+      measure("积分 \\int_0^1", "\\int_0^1 x\\,dx", (d, base) => {
+        const g = d.querySelector(".tex-int");
+        const r = g.getBoundingClientRect();
+        const off = r.bottom - base;
+        return { detail: `∫ 底边相对基线 ${F(off)}px`, ok: Math.abs(off) < 6 };
+      });
+
+      measure("裸文本（对照）", "x^2 + 1", (d) => ({ detail: "无特殊结构", ok: true }));
+
+      const out = [];
+      out.push("正文行高基准 : " + PLAIN_H.toFixed(2) + "px");
+      out.push("");
+      out.push("结构".padEnd(30) + "结果".padEnd(44) + "判定  行高");
+      out.push("-".repeat(96));
+      for (const r of rows) {
+        const verdict = r.ok === null ? "  ? " : r.ok ? " OK " : "偏差";
+        out.push(
+          r.label.padEnd(28).slice(0, 28) +
+            "  " +
+            r.detail.padEnd(42).slice(0, 42) +
+            "  " +
+            verdict +
+            "  " +
+            r.extra
+        );
+      }
+      const bad = rows.filter((r) => r.ok === false).length;
+      out.push("");
+      out.push(`偏差项 ${bad} / ${rows.length}`);
+      $("report").textContent = out.join("\n");
+      document.title = "MEASURED bad=" + bad;
+    </script>
+  </body>
+</html>

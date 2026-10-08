@@ -1,0 +1,38 @@
+{
+  "id": "T3-03",
+  "verdict": "ok",
+  "selfAnswer": "A",
+  "officialAnswer": "A",
+  "transcriptionIssues": [],
+  "keyIdea": "分段函数在分界点连续，必须满足「左极限 = 右极限 = 该点函数值」，而分界点处的极限靠等价无穷小代换快速算出。",
+  "steps": [
+    {
+      "title": "第一步：把「连续」翻译成极限等式",
+      "content": "因为 $x=0$ 是分段点，且左侧用 $ae^{4x}$、右侧用 $\\dfrac{1-e^{\\tan x}}{\\arcsin 2x}$，所以连续性要求在 $x=0$ 处两侧极限存在且相等，并且都等于 $f(0)$。由定义 $f(0)=a e^{4\\cdot 0}=a$，因此关键是算出右极限 $\\lim\\limits_{x\\to 0^{+}}\\dfrac{1-e^{\\tan x}}{\\arcsin 2x}$，令它等于 $a$ 即可求出 $a$。"
+    },
+    {
+      "title": "第二步：用等价无穷小处理 $\\frac{0}{0}$ 型右极限",
+      "content": "$x\\to 0^{+}$ 时 $\\tan x\\to 0$，分子分母都趋于 $0$，是 $\\frac{0}{0}$ 型。此时 $\\tan x\\sim x$，故 $1-e^{\\tan x}\\sim -\\tan x\\sim -x$（用的是 $e^{u}-1\\sim u$，即 $1-e^{u}\\sim -u$）；又 $\\arcsin 2x\\sim 2x$。替换后 $\\dfrac{1-e^{\\tan x}}{\\arcsin 2x}\\to \\dfrac{-x}{2x}=-\\dfrac{1}{2}$。之所以可以这样替换，是因为分子分母的等价量之比极限为 $1$，等价无穷小因子在乘除结构中可直接代换。"
+    },
+    {
+      "title": "第三步：比较左右极限，解出 $a$",
+      "content": "左极限为 $\\lim\\limits_{x\\to 0^{-}} ae^{4x}=a$（$e^{4x}$ 连续，$e^{0}=1$），右极限为 $-\\dfrac{1}{2}$。由连续性要求 $a=-\\dfrac{1}{2}$，对应选项 A。"
+    }
+  ],
+  "optionNotes": [
+    {
+      "key": "B",
+      "note": "选 B 的人只做对了分母 $\\arcsin 2x\\sim 2x$，却漏掉分子里的负号，把 $1-e^{\\tan x}$ 当成 $+\\tan x\\sim x$，于是算出 $\\frac{1}{2}$。注意 $1-e^{u}\\sim -u$：$u>0$ 时 $e^{u}>1$，分子为负。"
+    },
+    {
+      "key": "C",
+      "note": "选 C 的人把 $\\arcsin 2x\\sim 2x$ 中的系数 $2$ 当成分子分母同时出现而约掉，或误写成 $\\arcsin 2x\\sim x$，得到 $-\\frac{x}{x}=-1$。"
+    },
+    {
+      "key": "D",
+      "note": "选 D 的人既丢了负号又丢了分母的 $2$（把 $\\arcsin 2x\\sim x$ 且 $1-e^{\\tan x}\\sim x$），得到 $1$；也有人在解 $a$ 时忽略了右侧函数值 $f(0)=ae^{0}=a$ 与右极限的对应关系，直接把极限值取了绝对值。"
+    }
+  ],
+  "pitfalls": "典型错误有二：一是对 $1-e^{\\tan x}$ 的符号处理，误用 $1-e^{u}\\sim u$（应为 $-u$）；二是对 $\\arcsin 2x$ 只记住 $\\arcsin u\\sim u$ 却漏掉内层的系数 $2$，导致分母少了一个因子 $2$。此外，连续条件必须写成「左极限 $=$ 右极限 $=f(0)$」，$f(0)$ 由 $x\\le 0$ 的分支给出，不要误用右侧表达式。",
+  "selfReasoning": "独立求解：$f(0)=ae^{4\\cdot0}=a$；右极限 $\\lim_{x\\to0^{+}}\\frac{1-e^{\\tan x}}{\\arcsin 2x}=\\frac{-\\tan x}{2x}\\to-\\frac12$；左极限 $\\lim_{x\\to0^{-}}ae^{4x}=a$。连续性给出 $a=-\\frac12$，即 A，与官方答案 A 一致。"
+}

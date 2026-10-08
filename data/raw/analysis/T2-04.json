@@ -1,0 +1,64 @@
+{
+  "id": "T2-04",
+  "question": {
+    "id": "T2-04",
+    "testNo": 2,
+    "index": 4,
+    "src": "Test2/Test2-4.jpg",
+    "score": 10,
+    "stemLatex": "极限 $\\lim\\limits_{x \\to +\\infty} \\frac{\\sin 2x}{2x} =$",
+    "options": [
+      { "key": "A", "latex": "$-1$" },
+      { "key": "B", "latex": "$\\infty$" },
+      { "key": "C", "latex": "$1$" },
+      { "key": "D", "latex": "$0$" }
+    ],
+    "myAnswer": "D",
+    "correctAnswer": "D",
+    "knowledgePoints": ["有界量乘无穷小"],
+    "kpSource": "app"
+  },
+  "verdict": "ok",
+  "selfAnswer": "D",
+  "officialAnswer": "D",
+  "transcriptionIssues": [
+    "任务给出的图片路径缺少一层同名目录：实际文件位于 gaoshu-bank/web/assets/source/Test2/Test2/Test2-4.jpg（与题库 src 字段 Test2/Test2-4.jpg 一致），已按实际路径读取。",
+    "极限下标为首重要极限的 $\\lim\\limits_{x \\to +\\infty}$（放大 3 倍可清晰看到 $+$ 号与 $\\infty$），非 $x \\to 0$，也非 $x \\to \\infty$；题干按图转录为 $x \\to +\\infty$。",
+    "分母确认为 $2x$（非 $2^x$）。"
+  ],
+  "keyIdea": "分子 $\\sin 2x$ 是振荡的有界量（$|\\sin 2x| \\le 1$），分母 $2x \\to +\\infty$ 说明 $\\frac{1}{2x}$ 是无穷小；由「有界量乘无穷小仍是无穷小」得 $\\lim\\limits_{x \\to +\\infty} \\frac{\\sin 2x}{2x} = 0$。本题与第一重要极限 $\\lim\\limits_{x \\to 0} \\frac{\\sin 2x}{2x} = 1$ 形似而极限过程完全不同，辨析两者的区别正是考点。",
+  "steps": [
+    {
+      "title": "第一步：判断类型——先看极限过程，再决定能否用第一重要极限",
+      "content": "看到 $\\frac{\\sin 2x}{2x}$ 极易条件反射地写成 $1$，但第一重要极限 $\\lim\\limits_{u \\to 0} \\frac{\\sin u}{u} = 1$ 成立的前提是 $u \\to 0$。本题是 $x \\to +\\infty$，此时 $2x \\to +\\infty$ 而非 $\\to 0$，$\\frac{\\sin 2x}{2x}$ 根本不是 $\\frac{0}{0}$ 型未定式，而是「有界量除以无穷大」，因此第一重要极限在此处不适用。"
+    },
+    {
+      "title": "第二步：识别结构——有界量乘无穷小",
+      "content": "把式子拆成两个因子之积：$$\\frac{\\sin 2x}{2x} = \\sin 2x \\cdot \\frac{1}{2x}.$$ 对任意实数 $x$ 都有 $|\\sin 2x| \\le 1$，即 $\\sin 2x$ 是（关于 $x$ 一致）有界量；而当 $x \\to +\\infty$ 时 $\\frac{1}{2x} \\to 0$，即 $\\frac{1}{2x}$ 是无穷小量。"
+    },
+    {
+      "title": "第三步：用「有界量乘无穷小」定理求出极限",
+      "content": "定理：若存在 $M>0$ 使 $|g(x)| \\le M$，且 $\\lim h(x) = 0$，则 $\\lim g(x)h(x) = 0$。证明只靠夹逼：$0 \\le |g(x)h(x)| \\le M|h(x)| \\to 0$，故 $g(x)h(x) \\to 0$。取 $g(x)=\\sin 2x$（$M=1$）、$h(x)=\\frac{1}{2x}$，即得 $$0 \\le \\left|\\frac{\\sin 2x}{2x}\\right| \\le \\frac{1}{2x} \\xrightarrow{\\;x \\to +\\infty\\;} 0,$$ 由夹逼定理得 $\\left|\\frac{\\sin 2x}{2x}\\right| \\to 0$，从而 $\\lim\\limits_{x \\to +\\infty} \\frac{\\sin 2x}{2x} = 0$。"
+    },
+    {
+      "title": "第四步：核对选项，确认结论",
+      "content": "极限值为 $0$，对应选项 D。回报检验：取 $x=1000$，$\\frac{\\sin 2000}{2000}$ 的绝对值不超过 $\\frac{1}{2000}=0.0005$，确实贴着 $0$ 摆动；取 $x$ 更大时振幅 $\\frac{1}{2x}$ 更小，说明函数值既趋于 $0$ 又不停振荡，但只要振幅 $\\to 0$ 极限即存在且为 $0$。注意本题的极限是存在的、等于 $0$，不要因为「$\\sin 2x$ 没有极限」就误判原式极限不存在：$\\sin 2x$ 自身发散，但它被一个趋于 $0$ 的因子压制住了。"
+    }
+  ],
+  "optionNotes": [
+    {
+      "key": "A",
+      "note": "选 A 的人多半把题看成了某个 $x \\to 0$ 或 $x \\to \\pi$ 附近的极限，或者由 $\\sin$ 的取值符号联想到负值：$-1$ 是 $|\\sin 2x| \\le 1$ 的下界，是「振幅」而不是极限值。实际上当 $x \\to +\\infty$ 时函数值在 $\\pm\\frac{1}{2x}$ 之间无限次穿行，既不趋于 $-1$ 也不趋于 $1$，而是振幅不断缩小的振荡。"
+    },
+    {
+      "key": "B",
+      "note": "选 B 的人看到 $\\sin 2x$ 在 $x \\to +\\infty$ 时没有极限（振荡发散），就断定整个分式也发散为 $\\infty$。错因是把「分子发散」与「分式发散」等同：这里分子虽然无极限，但它始终有界，分母却无界增大，压制的结果是分式趋于 $0$，而不是 $\\infty$。只有当分子也趋于无穷大时（例如 $\\frac{x\\sin 2x}{1}$ 这种量级）才可能发散。"
+    },
+    {
+      "key": "C",
+      "note": "选 C 的人正是踩了本题的核心陷阱：把 $\\lim\\limits_{x \\to +\\infty} \\frac{\\sin 2x}{2x}$ 误当成第一重要极限 $\\lim\\limits_{x \\to 0} \\frac{\\sin 2x}{2x} = 1$。$-1$、$1$ 这两个「振幅端点」只有在对 $x=0$ 求极限、且用 $\\frac{\\sin u}{u} \\to 1$ 时才会出现；本题的极限过程是 $x \\to +\\infty$，$\\frac{1}{2x} \\to 0$，所以结果是 $0$ 而不是 $1$。"
+    }
+  ],
+  "pitfalls": "最典型的错误是「见到 $\\frac{\\sin 2x}{2x}$ 就写 $1$」，把第一重要极限 $\\lim\\limits_{u \\to 0}\\frac{\\sin u}{u}=1$ 的适用条件 $u \\to 0$ 抛在脑后，忽略本题的极限过程是 $x \\to +\\infty$。其次是把「分子无极限」直接等同于「分式无极限」，误选 $\\infty$ 或「不存在」，而没有意识到有界量乘无穷小仍为无穷小这一夹逼结论。第三个易错点是记错结论的方向：有界量乘无穷小得 $0$，而「无穷小乘无穷小」「有界量乘有界量」等组合需要另外讨论，不能随意套用。此外，若题干的极限过程被抄成 $x \\to 0$，答案会变成 $1$，因此做题前务必先确认下标。",
+  "selfReasoning": ""
+}
