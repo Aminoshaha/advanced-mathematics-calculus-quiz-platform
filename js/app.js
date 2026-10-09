@@ -36,6 +36,18 @@ const app = {
     this._footer = (nodes || []).filter(Boolean);
   },
 
+  async openChapter(id) {
+    if(!CHAPTERS.some(c=>c.id===id&&c.available))return;
+    if(session.active&&!session.active.finished&&session.active.attempts.length){
+      const ok=await confirmSheet({title:"切换题库？",text:"本次练习尚未结算，切换会丢弃未结算练习。已保存记录不受影响。",okText:"切换题库"});
+      if(!ok)return;
+    }
+    session.discard();bank.selectChapter(id);
+    this.setup={...this.setup,chapterId:id,kps:[],limit:0};
+    delete this.setup._onlyIds;
+    this.libFilter=0;this.report=null;this.route="practice";this.stage="setup";this.render();
+  },
+
   go(route) {
     // 重复点击「题库刷题」时，回到配置页（练习中会先确认）
     if (route === this.route) {
@@ -166,7 +178,8 @@ const NAV = [
   { id: "chapters", label: "题库刷题", icon: "practice" },
   { group: "章节与小测" },
   ...CHAPTERS.map(chapter => ({
-    id: chapter.available ? "practice" : chapter.id,
+    id: "chapter-"+chapter.id,
+    chapterId: chapter.id,
     label: chapter.title,
     icon: chapter.available ? "practice" : "doc",
     disabled: !chapter.available,
@@ -190,8 +203,8 @@ function renderSidebar(app) {
       continue;
     }
     const btn = el("button.nav-item", {
-      "aria-current": app.route === item.id ? "page" : null,
-      onclick: () => app.go(item.id),
+      "aria-current": app.route === item.id || (item.chapterId===bank.chapterId&&app.route==="practice") ? "page" : null,
+      onclick: () => item.chapterId ? app.openChapter(item.chapterId) : app.go(item.id),
       title: item.label,
       disabled: !!item.disabled,
     });
@@ -215,7 +228,7 @@ function renderSidebar(app) {
     el("div", { text: `题库 ${bank.questions.length} 题` }),
     el("div", { text: `${bank.knowledgePoints().length} 个知识点` }),
     el("div", {
-      text: "极限章节 · 本地版",
+      text: `${bank.title} · 离线题库`,
       style: { marginTop: "4px", opacity: "0.7" },
     })
   );
@@ -237,7 +250,7 @@ const TITLES = {
 
 function renderTitlebar(app) {
   const t = document.getElementById("titlebar-title");
-  if (t) t.textContent = TITLES[app.route] || "高等数学题库";
+  if (t) t.textContent = app.route === "practice" ? `${bank.title} · 题库刷题` : (TITLES[app.route] || "高等数学题库");
 }
 
 /* ==========================================================================
@@ -341,6 +354,8 @@ async function boot() {
 
   bank.load(data);
   if(matchMedia("(max-width: 700px)").matches && session.restoreDraft()){
+    bank.selectChapter(session.active.config.chapterId || bank.get(session.active.queue[0]).chapterId);
+    session.active.config.chapterId=bank.chapterId;
     app.route="practice";app.stage="quiz";app.setup={...app.setup,...session.active.config};
   }
   document.title = `高等数学题库 · ${bank.meta.chapter || ""}`;

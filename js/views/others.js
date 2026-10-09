@@ -12,7 +12,7 @@ import { iconHTML, toast, mathText, mathPlain, kpBar, emptyState, confirmSheet }
 
 export function statsView(app) {
   const m = masteryByKnowledgePoint();
-  const history = persist.history;
+  const history = persist.history.filter(r=>(r.config.chapterId || bank.get(r.attempts?.[0]?.qid)?.chapterId || "limits")===bank.chapterId);
   const mistakes = mistakeList();
 
   const totalAnswered = history.reduce((n, s) => n + (s.attempts || []).length, 0);
@@ -140,14 +140,14 @@ export function statsView(app) {
     el("button.btn.btn--bordered", {
       onclick: async () => {
         const ok = await confirmSheet({
-          title: "重置全部学习数据？",
-          text: "练习历史、错题本、掌握度都会被清空，题库本身不受影响。此操作不可撤销。",
+          title: `重置${bank.title}学习数据？`,
+          text: "当前章节的历史、错题和掌握度会被清空，其他章节不受影响。此操作不可撤销。",
           okText: "重置",
           danger: true,
           icon: "trash",
         });
         if (!ok) return;
-        persist.clearAll();
+        persist.clearChapter();
         toast("学习数据已重置");
         app.render();
       },
@@ -190,15 +190,14 @@ export function libraryView(app) {
         el("div.card__title", { text: "素材来源" }),
         el("div.card__desc", {
           html:
-            `由 <b>答题 App 小测截图</b>转录而成。原始 ${esc(meta.totalImages || 50)} 张截图，` +
-            `其中 Test4 与 Test1 逐字节完全相同（MD5 一致）为重复卷，故实际唯一题目 <b>${bank.questions.length} 道</b>。<br>` +
-            `每道题都保留了原图，在解析页可展开「查看原题截图」与原始小测逐字核对；题目正确性经过一轮独立重解交叉验证。`,
+            `<b>${esc(bank.title)}</b> · 由小测截图转录，原始 ${esc(meta.totalImages || 50)} 张截图，整理为 <b>${bank.questions.length} 道不重复题</b>。<br>` +
+            `${esc(meta.duplicateNote || "")}<br>每道题保留原图，可在解析页展开核对；${esc(meta.reviewNote || "极限题库保留既有解答核验记录。")}`,
         }),
         el("div.row.row--gap", { style: { marginTop: "14px", flexWrap: "wrap" } }, [
           el("span.badge.badge--accent", { text: `唯一题目 ${bank.questions.length}` }),
           el("span.badge", { text: `原始截图 ${meta.totalImages || 50}` }),
           el("span.badge", { text: `知识点 ${bank.knowledgePoints().length}` }),
-          el("span.badge.badge--green", { text: "独立重解校验通过" }),
+          el("span.badge.badge--green", { text: "答案复算核对通过" }),
         ]),
       ]),
     ])

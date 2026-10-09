@@ -17,18 +17,26 @@ const K_THEME = "ghb.theme.v1";
    ========================================================================== */
 
 export const bank = {
-  meta: {},
-  questions: [],
+  chapterId: "limits",
+  chapterMeta: {},
+  allQuestions: [],
+  get meta() { return this.chapterMeta[this.chapterId] || {}; },
+  get questions() { return this.chapterQuestions(this.chapterId); },
   analysis: {},
   byId: new Map(),
 
   load(data) {
-    this.meta = data.meta || {};
-    this.questions = data.questions || [];
+    this.chapterMeta = data.meta?.chapters || {limits:data.meta || {}};
+    this.allQuestions = (data.questions || []).map(q=>({...q,chapterId:q.chapterId || "limits"}));
     this.analysis = data.analysis || {};
-    this.byId = new Map(this.questions.map((q) => [q.id, q]));
+    this.byId = new Map(this.allQuestions.map((q) => [q.id, q]));
+    this.chapterId = "limits";
     return this;
   },
+
+  chapterQuestions(id) { return this.allQuestions.filter(q=>q.chapterId===id); },
+  selectChapter(id) { if(!this.chapterQuestions(id).length)return false;this.chapterId=id;return true; },
+  get title() { return this.meta.chapter || "极限"; },
 
   get(id) {
     return this.byId.get(id) || null;
@@ -40,9 +48,9 @@ export const bank = {
   },
 
   /** 题库中出现的全部知识点，按题量降序 */
-  knowledgePoints() {
+  knowledgePoints(chapterId = this.chapterId) {
     const m = new Map();
-    for (const q of this.questions) {
+    for (const q of this.chapterQuestions(chapterId)) {
       for (const k of q.knowledgePoints || []) m.set(k, (m.get(k) || 0) + 1);
     }
     return [...m.entries()]
@@ -88,6 +96,11 @@ export const persist = {
     this.saveHistory();
     this.saveMistakes();
   },
+  clearChapter() {
+    this.history=this.history.filter(r=>(r.config.chapterId || bank.get(r.attempts?.[0]?.qid)?.chapterId || "limits")!==bank.chapterId);
+    for(const id of Object.keys(this.mistakes))if(bank.get(id)?.chapterId===bank.chapterId)delete this.mistakes[id];
+    this.saveHistory();this.saveMistakes();
+  },
 };
 
 /** 错题本：记录并更新 */
@@ -126,6 +139,7 @@ export function resolveMistake(qid) {
 
 export function mistakeList({ onlyUnresolved = false } = {}) {
   return Object.values(persist.mistakes)
+    .filter(m=>bank.get(m.qid)?.chapterId===bank.chapterId)
     .filter((m) => (onlyUnresolved ? !m.resolved : true))
     .sort((a, b) => b.lastWrongAt - a.lastWrongAt);
 }
@@ -144,7 +158,7 @@ export function masteryByKnowledgePoint() {
   for (const s of persist.history) {
     for (const a of s.attempts || []) {
       const q = bank.get(a.qid);
-      if (!q) continue;
+      if (!q || q.chapterId !== bank.chapterId) continue;
       for (const kp of q.knowledgePoints || []) {
         const cur = acc.get(kp) || { attempts: 0, correct: 0 };
         cur.attempts += 1;
@@ -200,6 +214,7 @@ export const session = {
     const s = {
       id: uid("sess"),
       config: {
+        chapterId: bank.chapterId,
         kps: [],
         mode: "immediate",
         groupSize: 5,
@@ -236,11 +251,12 @@ export const session = {
     const cfg = session.active.config;
     // 错题重刷等场景：只在指定的题目集合内出题
     if (cfg._onlyIds && cfg._onlyIds.length) {
-      return cfg._onlyIds.map((id) => bank.get(id)).filter(Boolean);
+      return cfg._onlyIds.map((id) => bank.get(id)).filter(q=>q&&q.chapterId===cfg.chapterId);
     }
     const kps = cfg.kps;
-    if (!kps.length) return bank.questions.slice();
-    return bank.questions.filter((q) =>
+    const pool=bank.chapterQuestions(cfg.chapterId);
+    if (!kps.length) return pool;
+    return pool.filter((q) =>
       (q.knowledgePoints || []).some((k) => kps.includes(k))
     );
   },
@@ -262,7 +278,7 @@ export const session = {
 
   restoreDraft() {
     const s=storage.get("ghb.active.v1",null);
-    const valid=s&&!s.finished&&Array.isArray(s.queue)&&s.queue.length>0&&s.queue.length<=bank.questions.length&&new Set(s.queue).size===s.queue.length&&s.queue.every(id=>bank.get(id))&&Array.isArray(s.attempts)&&s.config&&Array.isArray(s.config.kps)&&["immediate","batch"].includes(s.config.mode)&&Number.isInteger(s.config.groupSize)&&s.config.groupSize>0&&Number.isInteger(s.cursor)&&s.cursor>=0&&s.cursor<s.queue.length&&Number.isFinite(s.startedAt)&&s.attempts.every(a=>a&&typeof a.qid==="string"&&Number.isInteger(a.index)&&a.index>=0&&a.index<s.queue.length&&s.queue[a.index]===a.qid&&bank.get(a.qid).options.some(o=>o.key===a.picked))&&new Set(s.attempts.map(a=>a.index)).size===s.attempts.length;
+    const valid=s&&!s.finished&&Array.isArray(s.queue)&&s.queue.length>0&&s.queue.length<=bank.allQuestions.length&&new Set(s.queue).size===s.queue.length&&s.queue.every(id=>bank.get(id))&&Array.isArray(s.attempts)&&s.config&&Array.isArray(s.config.kps)&&["immediate","batch"].includes(s.config.mode)&&Number.isInteger(s.config.groupSize)&&s.config.groupSize>0&&Number.isInteger(s.cursor)&&s.cursor>=0&&s.cursor<s.queue.length&&Number.isFinite(s.startedAt)&&s.attempts.every(a=>a&&typeof a.qid==="string"&&Number.isInteger(a.index)&&a.index>=0&&a.index<s.queue.length&&s.queue[a.index]===a.qid&&bank.get(a.qid).options.some(o=>o.key===a.picked))&&new Set(s.attempts.map(a=>a.index)).size===s.attempts.length;
     if(!valid){storage.del("ghb.active.v1");return false;}
     // 正确性从本地题库重新计算，不信任缓存中的 correct 字段。
     s.attempts.forEach(a=>a.correct=a.picked===bank.get(a.qid).correctAnswer);

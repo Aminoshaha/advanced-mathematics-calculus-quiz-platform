@@ -22,6 +22,7 @@ export function mobileQuizView(app, actions) {
       el("div.qstem", {html: mathText(q.stemLatex)}), options,
     ]),
   ];
+  if(q.figureSrc)children[0].insertBefore(el("img.question-figure",{src:q.figureSrc,alt:"题目给定的二阶导数图像（示意图）"}),options);
   if (revealed) {
     children.push(el("section.mobile-answer", {}, [
       el("h2", {text: "我的答案："}),

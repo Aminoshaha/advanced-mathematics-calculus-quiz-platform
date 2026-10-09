@@ -12,11 +12,11 @@ export function chaptersView(app) {
       ]),
       el("h2.chapter-card__title", { text: chapter.title }),
       el("p.card__desc", { text: chapter.subtitle }),
-      el("div.chapter-card__meta", { text: chapter.available ? `${bank.questions.length} 道单选题 · ${bank.knowledgePoints().length} 个考点 · 逐题解析` : "题目、解析与练习记录将按小测分别组织" }),
+      el("div.chapter-card__meta", { text: chapter.available ? `${bank.chapterQuestions(chapter.id).length} 道单选题 · ${bank.knowledgePoints(chapter.id).length} 个考点 · 逐题解析` : "题目、解析与练习记录将按小测分别组织" }),
       el("button.btn" + (chapter.available ? ".btn--primary" : ".btn--bordered"), {
         disabled: !chapter.available,
-        onclick: () => { if (chapter.available) app.go("practice"); },
-      }, [chapter.available ? "进入极限题库" : "敬请期待"]),
+        onclick: () => { if (chapter.available) app.openChapter(chapter.id); },
+      }, [chapter.available ? `进入${chapter.title}题库` : "敬请期待"]),
     ]),
   ]));
   app.setFooter([el("span.muted", { text: "先选章节，再选择考点与本次题量" })]);

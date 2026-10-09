@@ -14,8 +14,35 @@ export const BANK = {
   ],
   "missingNote": "T2-01 与 T2-04 两次提取均失败，待重新提取。",
   "builtAt": null,
-  "questionCount": 40,
-  "analysisCount": 40
+  "questionCount": 59,
+  "analysisCount": 59,
+  "chapters": {
+   "limits": {
+    "chapter": "极限",
+    "title": "高等数学 · 极限 小测题库",
+    "source": "答题 App 截图转录（Test1-5，每题 10 分，均为单选题）",
+    "totalImages": 50,
+    "uniqueImages": 40,
+    "duplicateNote": "Test4 目录下的 10 张图与 Test1 逐字节完全相同（MD5 一致），为重复卷，已排除。故实际唯一题目为 40 道。",
+    "extractedAt": "人工复核前",
+    "missingIds": [
+     "T2-01",
+     "T2-04"
+    ],
+    "missingNote": "T2-01 与 T2-04 两次提取均失败，待重新提取。"
+   },
+   "derivatives": {
+    "chapter": "导数与微分",
+    "title": "高等数学 · 第二次小测 · 导数与微分",
+    "source": "用户提供的小测截图逐题转录",
+    "totalImages": 26,
+    "uniqueImages": 20,
+    "questionCount": 19,
+    "duplicateNote": "Test3 的 6 张图片与 Test1 对应图片逐字节相同；Test2-8 与 Test1-2 数学题内容相同但选项顺序不同。合并为 19 道不重复题。",
+    "reviewNote": "19 道题逐图核对题干、选项与官方答案，并逐题数学复算；计算题另进行符号核验。",
+    "formatNote": "Test2-10 的原文件实际为 HEIC，解码为 PNG 供网页显示，原文件未改动。"
+   }
+  }
  },
  "questions": [
   {
@@ -48,7 +75,8 @@ export const BANK = {
    "knowledgePoints": [
     "等价替换"
    ],
-   "kpSource": "app"
+   "kpSource": "app",
+   "chapterId": "limits"
   },
   {
    "id": "T1-02",
@@ -80,7 +108,8 @@ export const BANK = {
    "knowledgePoints": [
     "无穷小的阶"
    ],
-   "kpSource": "app"
+   "kpSource": "app",
+   "chapterId": "limits"
   },
   {
    "id": "T1-03",
@@ -112,7 +141,8 @@ export const BANK = {
    "knowledgePoints": [
     "四则运算"
    ],
-   "kpSource": "app"
+   "kpSource": "app",
+   "chapterId": "limits"
   },
   {
    "id": "T1-04",
@@ -144,7 +174,8 @@ export const BANK = {
    "knowledgePoints": [
     "极限定义与性质"
    ],
-   "kpSource": "app"
+   "kpSource": "app",
+   "chapterId": "limits"
   },
   {
    "id": "T1-05",
@@ -177,7 +208,8 @@ export const BANK = {
     "连续的概念"
    ],
    "kpSource": "inferred",
-   "reviewNote": "原图知识点标签被底部按钮栏遮挡，标签内容按题干推断。"
+   "reviewNote": "原图知识点标签被底部按钮栏遮挡，标签内容按题干推断。",
+   "chapterId": "limits"
   },
   {
    "id": "T1-06",
@@ -210,7 +242,8 @@ export const BANK = {
     "极限定义与性质"
    ],
    "kpSource": "inferred",
-   "reviewNote": "原图知识点标签被遮挡，按题干推断。选项 D 分母经放大确认为 $2^{x}-1$。"
+   "reviewNote": "原图知识点标签被遮挡，按题干推断。选项 D 分母经放大确认为 $2^{x}-1$。",
+   "chapterId": "limits"
   },
   {
    "id": "T1-07",
@@ -242,7 +275,8 @@ export const BANK = {
    "knowledgePoints": [
     "四则运算"
    ],
-   "kpSource": "app"
+   "kpSource": "app",
+   "chapterId": "limits"
   },
   {
    "id": "T1-08",
@@ -274,7 +308,8 @@ export const BANK = {
    "knowledgePoints": [
     "等价替换"
    ],
-   "kpSource": "app"
+   "kpSource": "app",
+   "chapterId": "limits"
   },
   {
    "id": "T1-09",
@@ -306,7 +341,8 @@ export const BANK = {
    "knowledgePoints": [
     "重要极限"
    ],
-   "kpSource": "app"
+   "kpSource": "app",
+   "chapterId": "limits"
   },
   {
    "id": "T1-10",
@@ -338,7 +374,8 @@ export const BANK = {
    "knowledgePoints": [
     "间断点"
    ],
-   "kpSource": "app"
+   "kpSource": "app",
+   "chapterId": "limits"
   },
   {
    "id": "T2-01",
@@ -370,7 +407,8 @@ export const BANK = {
    "knowledgePoints": [
     "等价替换"
    ],
-   "kpSource": "app"
+   "kpSource": "app",
+   "chapterId": "limits"
   },
   {
    "id": "T2-02",
@@ -403,7 +441,8 @@ export const BANK = {
     "极限定义与性质"
    ],
    "kpSource": "inferred",
-   "reviewNote": "原图知识点标签被截断，按题干（左右极限不等）推断。"
+   "reviewNote": "原图知识点标签被截断，按题干（左右极限不等）推断。",
+   "chapterId": "limits"
   },
   {
    "id": "T2-03",
@@ -435,7 +474,8 @@ export const BANK = {
    "knowledgePoints": [
     "重要极限"
    ],
-   "kpSource": "app"
+   "kpSource": "app",
+   "chapterId": "limits"
   },
   {
    "id": "T2-04",
@@ -467,7 +507,8 @@ export const BANK = {
    "knowledgePoints": [
     "有界量乘无穷小"
    ],
-   "kpSource": "app"
+   "kpSource": "app",
+   "chapterId": "limits"
   },
   {
    "id": "T2-05",
@@ -500,7 +541,8 @@ export const BANK = {
     "间断点"
    ],
    "kpSource": "inferred",
-   "reviewNote": "原图知识点标签被遮挡，按题干推断。"
+   "reviewNote": "原图知识点标签被遮挡，按题干推断。",
+   "chapterId": "limits"
   },
   {
    "id": "T2-06",
@@ -532,7 +574,8 @@ export const BANK = {
    "knowledgePoints": [
     "极限定义与性质"
    ],
-   "kpSource": "app"
+   "kpSource": "app",
+   "chapterId": "limits"
   },
   {
    "id": "T2-07",
@@ -564,7 +607,8 @@ export const BANK = {
    "knowledgePoints": [
     "极限定义与性质"
    ],
-   "kpSource": "app"
+   "kpSource": "app",
+   "chapterId": "limits"
   },
   {
    "id": "T2-08",
@@ -596,7 +640,8 @@ export const BANK = {
    "knowledgePoints": [
     "四则运算"
    ],
-   "kpSource": "app"
+   "kpSource": "app",
+   "chapterId": "limits"
   },
   {
    "id": "T2-09",
@@ -628,7 +673,8 @@ export const BANK = {
    "knowledgePoints": [
     "无穷小的阶"
    ],
-   "kpSource": "app"
+   "kpSource": "app",
+   "chapterId": "limits"
   },
   {
    "id": "T2-10",
@@ -661,7 +707,8 @@ export const BANK = {
     "等价替换"
    ],
    "kpSource": "inferred",
-   "reviewNote": "原图知识点标签被截断，按题干推断。"
+   "reviewNote": "原图知识点标签被截断，按题干推断。",
+   "chapterId": "limits"
   },
   {
    "id": "T3-01",
@@ -693,7 +740,8 @@ export const BANK = {
    "knowledgePoints": [
     "极限定义与性质"
    ],
-   "kpSource": "app"
+   "kpSource": "app",
+   "chapterId": "limits"
   },
   {
    "id": "T3-02",
@@ -725,7 +773,8 @@ export const BANK = {
    "knowledgePoints": [
     "间断点"
    ],
-   "kpSource": "app"
+   "kpSource": "app",
+   "chapterId": "limits"
   },
   {
    "id": "T3-03",
@@ -758,7 +807,8 @@ export const BANK = {
     "连续的概念"
    ],
    "kpSource": "inferred",
-   "reviewNote": "原图知识点标签被底部按钮完全遮挡，按题干推断。"
+   "reviewNote": "原图知识点标签被底部按钮完全遮挡，按题干推断。",
+   "chapterId": "limits"
   },
   {
    "id": "T3-04",
@@ -790,7 +840,8 @@ export const BANK = {
    "knowledgePoints": [
     "有界量乘无穷小"
    ],
-   "kpSource": "app"
+   "kpSource": "app",
+   "chapterId": "limits"
   },
   {
    "id": "T3-05",
@@ -822,7 +873,8 @@ export const BANK = {
    "knowledgePoints": [
     "等价替换"
    ],
-   "kpSource": "app"
+   "kpSource": "app",
+   "chapterId": "limits"
   },
   {
    "id": "T3-06",
@@ -854,7 +906,8 @@ export const BANK = {
    "knowledgePoints": [
     "重要极限"
    ],
-   "kpSource": "app"
+   "kpSource": "app",
+   "chapterId": "limits"
   },
   {
    "id": "T3-07",
@@ -886,7 +939,8 @@ export const BANK = {
    "knowledgePoints": [
     "四则运算"
    ],
-   "kpSource": "app"
+   "kpSource": "app",
+   "chapterId": "limits"
   },
   {
    "id": "T3-08",
@@ -918,7 +972,8 @@ export const BANK = {
    "knowledgePoints": [
     "等价替换"
    ],
-   "kpSource": "app"
+   "kpSource": "app",
+   "chapterId": "limits"
   },
   {
    "id": "T3-09",
@@ -950,7 +1005,8 @@ export const BANK = {
    "knowledgePoints": [
     "无穷小的阶"
    ],
-   "kpSource": "app"
+   "kpSource": "app",
+   "chapterId": "limits"
   },
   {
    "id": "T3-10",
@@ -982,7 +1038,8 @@ export const BANK = {
    "knowledgePoints": [
     "四则运算"
    ],
-   "kpSource": "app"
+   "kpSource": "app",
+   "chapterId": "limits"
   },
   {
    "id": "T5-01",
@@ -1014,7 +1071,8 @@ export const BANK = {
    "knowledgePoints": [
     "等价替换"
    ],
-   "kpSource": "app"
+   "kpSource": "app",
+   "chapterId": "limits"
   },
   {
    "id": "T5-02",
@@ -1046,7 +1104,8 @@ export const BANK = {
    "knowledgePoints": [
     "重要极限"
    ],
-   "kpSource": "app"
+   "kpSource": "app",
+   "chapterId": "limits"
   },
   {
    "id": "T5-03",
@@ -1079,7 +1138,8 @@ export const BANK = {
     "有界量乘无穷小",
     "等价替换"
    ],
-   "kpSource": "app"
+   "kpSource": "app",
+   "chapterId": "limits"
   },
   {
    "id": "T5-04",
@@ -1111,7 +1171,8 @@ export const BANK = {
    "knowledgePoints": [
     "等价替换"
    ],
-   "kpSource": "app"
+   "kpSource": "app",
+   "chapterId": "limits"
   },
   {
    "id": "T5-05",
@@ -1143,7 +1204,8 @@ export const BANK = {
    "knowledgePoints": [
     "连续的概念"
    ],
-   "kpSource": "app"
+   "kpSource": "app",
+   "chapterId": "limits"
   },
   {
    "id": "T5-06",
@@ -1176,7 +1238,8 @@ export const BANK = {
     "无穷小的阶"
    ],
    "kpSource": "inferred",
-   "reviewNote": "原图知识点标签内容不可见，按题干推断。"
+   "reviewNote": "原图知识点标签内容不可见，按题干推断。",
+   "chapterId": "limits"
   },
   {
    "id": "T5-07",
@@ -1209,7 +1272,8 @@ export const BANK = {
     "四则运算"
    ],
    "kpSource": "app",
-   "reviewNote": "选项 D 分子第二个底数截图较模糊，辨认为 8。"
+   "reviewNote": "选项 D 分子第二个底数截图较模糊，辨认为 8。",
+   "chapterId": "limits"
   },
   {
    "id": "T5-08",
@@ -1241,7 +1305,8 @@ export const BANK = {
    "knowledgePoints": [
     "四则运算"
    ],
-   "kpSource": "app"
+   "kpSource": "app",
+   "chapterId": "limits"
   },
   {
    "id": "T5-09",
@@ -1273,7 +1338,8 @@ export const BANK = {
    "knowledgePoints": [
     "极限定义与性质"
    ],
-   "kpSource": "app"
+   "kpSource": "app",
+   "chapterId": "limits"
   },
   {
    "id": "T5-10",
@@ -1305,7 +1371,642 @@ export const BANK = {
    "knowledgePoints": [
     "间断点"
    ],
-   "kpSource": "app"
+   "kpSource": "app",
+   "chapterId": "limits"
+  },
+  {
+   "id": "D1-01",
+   "chapterId": "derivatives",
+   "testNo": 1,
+   "index": 1,
+   "src": "Derivatives/Test1/Test1-1.jpg",
+   "score": 10,
+   "stemLatex": "设 $f(0)=0$，且 $\\lim_{x\\to0}\\frac{f(x)}{x^2}=2$，则 $x=0$ 是 $f(x)$ 的（　）。",
+   "options": [
+    {
+     "key": "A",
+     "latex": "驻点，极小值点"
+    },
+    {
+     "key": "B",
+     "latex": "不可导的极值点"
+    },
+    {
+     "key": "C",
+     "latex": "驻点非极值点"
+    },
+    {
+     "key": "D",
+     "latex": "驻点，极大值点"
+    }
+   ],
+   "myAnswer": "A",
+   "correctAnswer": "A",
+   "knowledgePoints": [
+    "导数定义",
+    "极值与驻点"
+   ],
+   "kpSource": "reviewed"
+  },
+  {
+   "id": "D1-02",
+   "chapterId": "derivatives",
+   "testNo": 1,
+   "index": 2,
+   "src": "Derivatives/Test1/Test1-2.jpg",
+   "score": 10,
+   "stemLatex": "设 $f(x)=x\\cdot2^x$，则 $f^{(5)}(0)=$（　）。",
+   "options": [
+    {
+     "key": "A",
+     "latex": "$5$"
+    },
+    {
+     "key": "B",
+     "latex": "$0$"
+    },
+    {
+     "key": "C",
+     "latex": "$5(\\ln2)^4$"
+    },
+    {
+     "key": "D",
+     "latex": "$(\\ln2)^4$"
+    }
+   ],
+   "myAnswer": "C",
+   "correctAnswer": "C",
+   "knowledgePoints": [
+    "高阶导数"
+   ],
+   "kpSource": "reviewed"
+  },
+  {
+   "id": "D1-03",
+   "chapterId": "derivatives",
+   "testNo": 1,
+   "index": 3,
+   "src": "Derivatives/Test1/Test1-3.jpg",
+   "score": 10,
+   "stemLatex": "设 $f(x)=\\frac1{4x^2}$，则 $f\\prime(2)=$（　）。",
+   "options": [
+    {
+     "key": "A",
+     "latex": "$-\\frac18$"
+    },
+    {
+     "key": "B",
+     "latex": "$-\\frac1{16}$"
+    },
+    {
+     "key": "C",
+     "latex": "$\\frac18$"
+    },
+    {
+     "key": "D",
+     "latex": "$\\frac1{16}$"
+    }
+   ],
+   "myAnswer": "B",
+   "correctAnswer": "B",
+   "knowledgePoints": [
+    "基本求导"
+   ],
+   "kpSource": "reviewed"
+  },
+  {
+   "id": "D1-04",
+   "chapterId": "derivatives",
+   "testNo": 1,
+   "index": 4,
+   "src": "Derivatives/Test1/Test1-4.jpg",
+   "score": 10,
+   "stemLatex": "设在 $[0,1]$ 上 $f^{\\prime\\prime}(x)>0$，则 $f\\prime(0)$、$f\\prime(1)$、$f(1)-f(0)$ 或 $f(0)-f(1)$ 的大小顺序是（　）。",
+   "options": [
+    {
+     "key": "A",
+     "latex": "$f\\prime(1)>f\\prime(0)>f(1)-f(0)$"
+    },
+    {
+     "key": "B",
+     "latex": "$f(1)-f(0)>f\\prime(1)>f\\prime(0)$"
+    },
+    {
+     "key": "C",
+     "latex": "$f\\prime(1)>f(0)-f(1)>f\\prime(0)$"
+    },
+    {
+     "key": "D",
+     "latex": "$f\\prime(1)>f(1)-f(0)>f\\prime(0)$"
+    }
+   ],
+   "myAnswer": "D",
+   "correctAnswer": "D",
+   "knowledgePoints": [
+    "单调性",
+    "中值定理"
+   ],
+   "kpSource": "reviewed"
+  },
+  {
+   "id": "D1-05",
+   "chapterId": "derivatives",
+   "testNo": 1,
+   "index": 5,
+   "src": "Derivatives/Test1/Test1-5.jpg",
+   "score": 10,
+   "stemLatex": "参数方程 $\\begin{cases}x=\\ln(1+t^2)\\\\y=t-\\arctan t\\end{cases}$ 所确定的函数的导数 $\\frac{dy}{dx}=$（　）。",
+   "options": [
+    {
+     "key": "A",
+     "latex": "$\\frac t2$"
+    },
+    {
+     "key": "B",
+     "latex": "$\\frac2t$"
+    },
+    {
+     "key": "C",
+     "latex": "$\\frac1{t^2}$"
+    },
+    {
+     "key": "D",
+     "latex": "$t^2$"
+    }
+   ],
+   "myAnswer": "A",
+   "correctAnswer": "A",
+   "knowledgePoints": [
+    "参数方程求导"
+   ],
+   "kpSource": "reviewed"
+  },
+  {
+   "id": "D1-06",
+   "chapterId": "derivatives",
+   "testNo": 1,
+   "index": 6,
+   "src": "Derivatives/Test1/Test1-6.jpg",
+   "score": 10,
+   "stemLatex": "点 $(1,3)$ 为曲线 $y=ax^3+bx^2$ 的拐点，则 $a=$（　），$b=$（　）。",
+   "options": [
+    {
+     "key": "A",
+     "latex": "$\\frac32,\\ \\frac92$"
+    },
+    {
+     "key": "B",
+     "latex": "$\\frac32,\\ -\\frac92$"
+    },
+    {
+     "key": "C",
+     "latex": "$-\\frac32,\\ \\frac92$"
+    },
+    {
+     "key": "D",
+     "latex": "$-\\frac32,\\ -\\frac92$"
+    }
+   ],
+   "myAnswer": "C",
+   "correctAnswer": "C",
+   "knowledgePoints": [
+    "拐点"
+   ],
+   "kpSource": "reviewed"
+  },
+  {
+   "id": "D1-07",
+   "chapterId": "derivatives",
+   "testNo": 1,
+   "index": 7,
+   "src": "Derivatives/Test1/Test1-7.jpg",
+   "score": 10,
+   "stemLatex": "函数 $y=(x^2-1)^3+1$ 的极值点是（　）。",
+   "options": [
+    {
+     "key": "A",
+     "latex": "$x=1$"
+    },
+    {
+     "key": "B",
+     "latex": "$x=0$"
+    },
+    {
+     "key": "C",
+     "latex": "不存在"
+    },
+    {
+     "key": "D",
+     "latex": "$x=-1$"
+    }
+   ],
+   "myAnswer": "C",
+   "correctAnswer": "B",
+   "knowledgePoints": [
+    "极值与驻点"
+   ],
+   "kpSource": "reviewed"
+  },
+  {
+   "id": "D1-08",
+   "chapterId": "derivatives",
+   "testNo": 1,
+   "index": 8,
+   "src": "Derivatives/Test1/Test1-8.jpg",
+   "score": 10,
+   "stemLatex": "设函数 $f(x)=\\begin{cases}ax^2+1,&x\\ge1\\\\-x^2+bx,&x<1\\end{cases}$ 在 $x=1$ 处可导，则 $a=$（　），$b=$（　）。",
+   "options": [
+    {
+     "key": "A",
+     "latex": "$1,\\ 0$"
+    },
+    {
+     "key": "B",
+     "latex": "$0,\\ 1$"
+    },
+    {
+     "key": "C",
+     "latex": "$0,\\ 2$"
+    },
+    {
+     "key": "D",
+     "latex": "$1,\\ 2$"
+    }
+   ],
+   "myAnswer": "C",
+   "correctAnswer": "C",
+   "knowledgePoints": [
+    "分段函数可导"
+   ],
+   "kpSource": "reviewed"
+  },
+  {
+   "id": "D1-09",
+   "chapterId": "derivatives",
+   "testNo": 1,
+   "index": 9,
+   "src": "Derivatives/Test1/Test1-9.jpg",
+   "score": 10,
+   "stemLatex": "若 $f(-x)=f(x)$（$-\\infty<x<+\\infty$），在 $(-\\infty,0)$ 内 $f\\prime(x)>0$、$f^{\\prime\\prime}(x)<0$，则在 $(0,+\\infty)$ 内（　）。",
+   "options": [
+    {
+     "key": "A",
+     "latex": "$f(x)$ 单调减少，且其图像是凹的"
+    },
+    {
+     "key": "B",
+     "latex": "$f(x)$ 单调减少，且其图像是凸的"
+    },
+    {
+     "key": "C",
+     "latex": "$f(x)$ 单调增加，且其图像是凹的"
+    },
+    {
+     "key": "D",
+     "latex": "$f(x)$ 单调增加，且其图像是凸的"
+    }
+   ],
+   "myAnswer": "B",
+   "correctAnswer": "B",
+   "knowledgePoints": [
+    "单调性",
+    "凹凸性"
+   ],
+   "kpSource": "reviewed"
+  },
+  {
+   "id": "D1-10",
+   "chapterId": "derivatives",
+   "testNo": 1,
+   "index": 10,
+   "src": "Derivatives/Test1/Test1-10.jpg",
+   "score": 10,
+   "stemLatex": "极限 $\\lim_{x\\to0}\\frac{\\sin x-x}{\\cos x-1}=$（　）。",
+   "options": [
+    {
+     "key": "A",
+     "latex": "$\\infty$"
+    },
+    {
+     "key": "B",
+     "latex": "不存在"
+    },
+    {
+     "key": "C",
+     "latex": "$0$"
+    },
+    {
+     "key": "D",
+     "latex": "$1$"
+    }
+   ],
+   "myAnswer": "C",
+   "correctAnswer": "C",
+   "knowledgePoints": [
+    "洛必达法则"
+   ],
+   "kpSource": "reviewed"
+  },
+  {
+   "id": "D2-01",
+   "chapterId": "derivatives",
+   "testNo": 2,
+   "index": 1,
+   "src": "Derivatives/Test2/Test2-1.jpg",
+   "score": 10,
+   "stemLatex": "设 $x=g(y)$ 是 $f(x)=\\ln x+\\arctan x$ 的反函数，则 $g\\prime(\\pi/4)=$（　）。",
+   "options": [
+    {
+     "key": "A",
+     "latex": "$0$"
+    },
+    {
+     "key": "B",
+     "latex": "$-1$"
+    },
+    {
+     "key": "C",
+     "latex": "$1$"
+    },
+    {
+     "key": "D",
+     "latex": "$\\frac23$"
+    }
+   ],
+   "myAnswer": "B",
+   "correctAnswer": "D",
+   "knowledgePoints": [
+    "反函数求导"
+   ],
+   "kpSource": "reviewed"
+  },
+  {
+   "id": "D2-02",
+   "chapterId": "derivatives",
+   "testNo": 2,
+   "index": 2,
+   "src": "Derivatives/Test2/Test2-2.jpg",
+   "score": 10,
+   "stemLatex": "极限 $\\lim_{x\\to0^+}x^2\\ln x=$（　）。",
+   "options": [
+    {
+     "key": "A",
+     "latex": "$1$"
+    },
+    {
+     "key": "B",
+     "latex": "$2$"
+    },
+    {
+     "key": "C",
+     "latex": "$3$"
+    },
+    {
+     "key": "D",
+     "latex": "$0$"
+    }
+   ],
+   "myAnswer": "D",
+   "correctAnswer": "D",
+   "knowledgePoints": [
+    "洛必达法则"
+   ],
+   "kpSource": "reviewed"
+  },
+  {
+   "id": "D2-03",
+   "chapterId": "derivatives",
+   "testNo": 2,
+   "index": 3,
+   "src": "Derivatives/Test2/Test2-3.jpg",
+   "score": 10,
+   "stemLatex": "$y=x\\arctan x$ 的图形是（　）。",
+   "options": [
+    {
+     "key": "A",
+     "latex": "$(-\\infty,0)$ 为凸的，$(0,+\\infty)$ 为凹的"
+    },
+    {
+     "key": "B",
+     "latex": "$(-\\infty,+\\infty)$ 处处是凸的"
+    },
+    {
+     "key": "C",
+     "latex": "$(-\\infty,0)$ 为凹的，$(0,+\\infty)$ 为凸的"
+    },
+    {
+     "key": "D",
+     "latex": "$(-\\infty,+\\infty)$ 处处是凹的"
+    }
+   ],
+   "myAnswer": "D",
+   "correctAnswer": "D",
+   "knowledgePoints": [
+    "凹凸性"
+   ],
+   "kpSource": "reviewed"
+  },
+  {
+   "id": "D2-04",
+   "chapterId": "derivatives",
+   "testNo": 2,
+   "index": 4,
+   "src": "Derivatives/Test2/Test2-4.jpg",
+   "score": 10,
+   "stemLatex": "设 $f(0)=0$，且 $\\lim_{x\\to0}\\frac{f(x)}{x^2}=-2$，则 $x=0$ 是 $f(x)$ 的（　）。",
+   "options": [
+    {
+     "key": "A",
+     "latex": "不可导的极值点"
+    },
+    {
+     "key": "B",
+     "latex": "驻点，极小值点"
+    },
+    {
+     "key": "C",
+     "latex": "驻点，极大值点"
+    },
+    {
+     "key": "D",
+     "latex": "驻点非极值点"
+    }
+   ],
+   "myAnswer": "C",
+   "correctAnswer": "C",
+   "knowledgePoints": [
+    "导数定义",
+    "极值与驻点"
+   ],
+   "kpSource": "reviewed"
+  },
+  {
+   "id": "D2-05",
+   "chapterId": "derivatives",
+   "testNo": 2,
+   "index": 5,
+   "src": "Derivatives/Test2/Test2-5.jpg",
+   "score": 10,
+   "stemLatex": "函数 $y=2x^3-6x^2-18x$，$1\\le x\\le4$，其最大值点是（　）。",
+   "options": [
+    {
+     "key": "A",
+     "latex": "$x=3$"
+    },
+    {
+     "key": "B",
+     "latex": "$x=-1$"
+    },
+    {
+     "key": "C",
+     "latex": "$x=1$"
+    },
+    {
+     "key": "D",
+     "latex": "$x=4$"
+    }
+   ],
+   "myAnswer": "C",
+   "correctAnswer": "C",
+   "knowledgePoints": [
+    "闭区间最值"
+   ],
+   "kpSource": "reviewed"
+  },
+  {
+   "id": "D2-06",
+   "chapterId": "derivatives",
+   "testNo": 2,
+   "index": 6,
+   "src": "Derivatives/Test2/Test2-6.jpg",
+   "score": 10,
+   "stemLatex": "已知 $f(x)=\\begin{cases}e^x,&x<0\\\\a+bx,&x\\ge0\\end{cases}$ 在 $x=0$ 处可导，则（　）。",
+   "options": [
+    {
+     "key": "A",
+     "latex": "$a=-1,\\ b=-1$"
+    },
+    {
+     "key": "B",
+     "latex": "$a=1,\\ b=1$"
+    },
+    {
+     "key": "C",
+     "latex": "$a=-1,\\ b=1$"
+    },
+    {
+     "key": "D",
+     "latex": "$a=1,\\ b=-1$"
+    }
+   ],
+   "myAnswer": "D",
+   "correctAnswer": "B",
+   "knowledgePoints": [
+    "分段函数可导"
+   ],
+   "kpSource": "reviewed"
+  },
+  {
+   "id": "D2-07",
+   "chapterId": "derivatives",
+   "testNo": 2,
+   "index": 7,
+   "src": "Derivatives/Test2/Test2-7.jpg",
+   "score": 10,
+   "stemLatex": "由方程 $xy+\\ln y=1$ 所确定的曲线 $y=y(x)$，在点 $(1,1)$ 处的切线方程为 $y=$（　）。",
+   "options": [
+    {
+     "key": "A",
+     "latex": "$1$"
+    },
+    {
+     "key": "B",
+     "latex": "$-2x+3$"
+    },
+    {
+     "key": "C",
+     "latex": "$-\\frac12x+\\frac32$"
+    },
+    {
+     "key": "D",
+     "latex": "$\\frac12x+\\frac12$"
+    }
+   ],
+   "myAnswer": "C",
+   "correctAnswer": "C",
+   "knowledgePoints": [
+    "隐函数求导",
+    "切线方程"
+   ],
+   "kpSource": "reviewed"
+  },
+  {
+   "id": "D2-09",
+   "chapterId": "derivatives",
+   "testNo": 2,
+   "index": 9,
+   "src": "Derivatives/Test2/Test2-9.jpg",
+   "score": 10,
+   "stemLatex": "设函数 $f(x)$ 在 $(-\\infty,+\\infty)$ 内连续，其二阶导数 $f^{\\prime\\prime}(x)$ 的图形如下，则曲线 $y=f(x)$ 的拐点个数为（　）。",
+   "options": [
+    {
+     "key": "A",
+     "latex": "$1$"
+    },
+    {
+     "key": "B",
+     "latex": "$2$"
+    },
+    {
+     "key": "C",
+     "latex": "$0$"
+    },
+    {
+     "key": "D",
+     "latex": "$3$"
+    }
+   ],
+   "myAnswer": "B",
+   "correctAnswer": "B",
+   "knowledgePoints": [
+    "拐点",
+    "凹凸性"
+   ],
+   "kpSource": "reviewed",
+   "figureSrc": "assets/figures/derivatives/D2-09.svg"
+  },
+  {
+   "id": "D2-10",
+   "chapterId": "derivatives",
+   "testNo": 2,
+   "index": 10,
+   "src": "Derivatives/Test2/Test2-10.png",
+   "score": 10,
+   "stemLatex": "设 $f(x)$ 可导，且 $f(x)f\\prime(x)>0$，则（　）。",
+   "options": [
+    {
+     "key": "A",
+     "latex": "$f^2(1)<f^2(-1)$"
+    },
+    {
+     "key": "B",
+     "latex": "$f^2(1)>f^2(-1)$"
+    },
+    {
+     "key": "C",
+     "latex": "$f(1)>f(-1)$"
+    },
+    {
+     "key": "D",
+     "latex": "$f(1)<f(-1)$"
+    }
+   ],
+   "myAnswer": "C",
+   "correctAnswer": "B",
+   "knowledgePoints": [
+    "单调性"
+   ],
+   "kpSource": "reviewed"
   }
  ],
  "analysis": {
@@ -2925,6 +3626,690 @@ export const BANK = {
    ],
    "pitfalls": "最典型的错误是把极限变量 $n$ 与自变量 $x$ 的位置搞反：不去按 $|x|$ 与 $1$ 的大小分段求极限函数，而是试图直接对 $x$ 取极限或直接代入 $x=1$，从而漏掉 $x=1$ 处左右极限为 $2$ 与 $0$ 的跳跃；其次是只算出 $|x|<1$ 的表达式 $1+x$，忘记 $|x|>1$ 与 $|x|=1$ 三种情形要分开讨论。",
    "selfReasoning": ""
+  },
+  "D1-01": {
+   "verdict": "ok",
+   "selfAnswer": "A",
+   "officialAnswer": "A",
+   "verificationMethod": "逐图转录与数学复算",
+   "keyIdea": "先用导数定义判断驻点，再由 $f(x)$ 在零点附近的符号判断极值。",
+   "steps": [
+    {
+     "title": "第1步",
+     "content": "$f\\prime(0)=\\lim_{x\\to0}\\frac{f(x)-f(0)}x=\\lim_{x\\to0}x\\frac{f(x)}{x^2}=0$，故零点是驻点。"
+    },
+    {
+     "title": "第2步",
+     "content": "比值极限为正，故充分接近零点且 $x\\ne0$ 时 $f(x)/x^2>0$，从而 $f(x)>0=f(0)$。"
+    },
+    {
+     "title": "第3步",
+     "content": "因此零点是严格极小值点，选 A。"
+    }
+   ],
+   "optionNotes": [
+    {
+     "key": "B",
+     "note": "导数定义给出的极限是零，因此不是不可导。"
+    },
+    {
+     "key": "C",
+     "note": "函数在去心邻域内大于零点函数值，确实有极小值。"
+    },
+    {
+     "key": "D",
+     "note": "邻域内函数值比零点大，不能是极大值。"
+    }
+   ],
+   "pitfalls": "不能只凭导数为零判极值；还必须使用题给比值极限的正号。"
+  },
+  "D1-02": {
+   "verdict": "ok",
+   "selfAnswer": "C",
+   "officialAnswer": "C",
+   "verificationMethod": "逐图转录与数学复算",
+   "keyIdea": "用乘积的高阶求导公式；$x$ 的二阶及以上导数全为零。",
+   "steps": [
+    {
+     "title": "第1步",
+     "content": "令 $a=\\ln2$，则 $2^x=e^{ax}$，其 $n$ 阶导数为 $a^ne^{ax}$。"
+    },
+    {
+     "title": "第2步",
+     "content": "由莱布尼茨公式，$f^{(n)}(x)=x a^ne^{ax}+n a^{n-1}e^{ax}$。"
+    },
+    {
+     "title": "第3步",
+     "content": "代入 $n=5,x=0$，得 $f^{(5)}(0)=5(\\ln2)^4$，选 C。"
+    }
+   ],
+   "optionNotes": [
+    {
+     "key": "A",
+     "note": "遗漏了 $(\\ln2)^4$。"
+    },
+    {
+     "key": "B",
+     "note": "只有含 $x$ 的一项归零，另有乘积求导项。"
+    },
+    {
+     "key": "D",
+     "note": "遗漏了系数 5。"
+    }
+   ],
+   "pitfalls": "指数函数 $2^x$ 每次求导都会乘上 $\\ln2$；不能漏掉乘积求导系数。"
+  },
+  "D1-03": {
+   "verdict": "ok",
+   "selfAnswer": "B",
+   "officialAnswer": "B",
+   "verificationMethod": "逐图转录与数学复算",
+   "keyIdea": "先写成幂函数，再求导后代入。",
+   "steps": [
+    {
+     "title": "第1步",
+     "content": "$f(x)=\\frac14x^{-2}$。"
+    },
+    {
+     "title": "第2步",
+     "content": "$f\\prime(x)=\\frac14(-2)x^{-3}=-\\frac1{2x^3}$。"
+    },
+    {
+     "title": "第3步",
+     "content": "$f\\prime(2)=-1/(2\\cdot8)=-1/16$，选 B。"
+    }
+   ],
+   "optionNotes": [
+    {
+     "key": "A",
+     "note": "遗漏求导后的系数 1/2。"
+    },
+    {
+     "key": "C",
+     "note": "系数和负号均不正确。"
+    },
+    {
+     "key": "D",
+     "note": "负幂求导产生负号。"
+    }
+   ],
+   "pitfalls": "求导应在代入数值之前完成；不要把函数值与导数值混淆。"
+  },
+  "D1-04": {
+   "verdict": "ok",
+   "selfAnswer": "D",
+   "officialAnswer": "D",
+   "verificationMethod": "逐图转录与数学复算",
+   "keyIdea": "二阶导数为正使一阶导数递增；拉格朗日中值定理将割线斜率夹在端点导数之间。",
+   "steps": [
+    {
+     "title": "第1步",
+     "content": "$f^{\\prime\\prime}(x)>0$，故 $f\\prime$ 严格递增。"
+    },
+    {
+     "title": "第2步",
+     "content": "存在 $\\xi\\in(0,1)$，使 $f(1)-f(0)=f\\prime(\\xi)$。"
+    },
+    {
+     "title": "第3步",
+     "content": "$f\\prime(0)<f\\prime(\\xi)<f\\prime(1)$，故选 D。"
+    }
+   ],
+   "optionNotes": [
+    {
+     "key": "A",
+     "note": "割线斜率应大于左端导数。"
+    },
+    {
+     "key": "B",
+     "note": "割线斜率应小于右端导数。"
+    },
+    {
+     "key": "C",
+     "note": "差值取反后不再对应所需割线斜率。"
+    }
+   ],
+   "pitfalls": "中值定理对应的是 $[f(1)-f(0)]/(1-0)$，不是反向差值。"
+  },
+  "D1-05": {
+   "verdict": "ok",
+   "selfAnswer": "A",
+   "officialAnswer": "A",
+   "verificationMethod": "逐图转录与数学复算",
+   "keyIdea": "在 $dx/dt\\ne0$ 的参数点，$dy/dx=(dy/dt)/(dx/dt)$。",
+   "steps": [
+    {
+     "title": "第1步",
+     "content": "$dx/dt=2t/(1+t^2)$。"
+    },
+    {
+     "title": "第2步",
+     "content": "$dy/dt=1-1/(1+t^2)=t^2/(1+t^2)$。"
+    },
+    {
+     "title": "第3步",
+     "content": "对 $t\\ne0$，相除得 $dy/dx=t/2$，选 A；在 $t=0$ 不可直接套用分母非零的求导公式。"
+    }
+   ],
+   "optionNotes": [
+    {
+     "key": "B",
+     "note": "将两导数的比值颠倒了。"
+    },
+    {
+     "key": "C",
+     "note": "没有正确计算参数导数之比。"
+    },
+    {
+     "key": "D",
+     "note": "只保留了 $dy/dt$ 分子，遗漏相除步骤。"
+    }
+   ],
+   "pitfalls": "注意参数求导公式要求 $dx/dt\\ne0$；$t=0$ 如需讨论，应另外判断分支与单侧导数。"
+  },
+  "D1-06": {
+   "verdict": "ok",
+   "selfAnswer": "C",
+   "officialAnswer": "C",
+   "verificationMethod": "逐图转录与数学复算",
+   "keyIdea": "联立过点条件和二阶导数条件，并检查二阶导数确实变号。",
+   "steps": [
+    {
+     "title": "第1步",
+     "content": "曲线经过 $(1,3)$，得 $a+b=3$。"
+    },
+    {
+     "title": "第2步",
+     "content": "$y^{\\prime\\prime}=6ax+2b$，在 $x=1$ 为零，得 $3a+b=0$；联立得 $a=-3/2,b=9/2$。"
+    },
+    {
+     "title": "第3步",
+     "content": "代回得 $y^{\\prime\\prime}=9(1-x)$，在 1 两侧变号，故确为拐点，选 C。"
+    }
+   ],
+   "optionNotes": [
+    {
+     "key": "A",
+     "note": "不满足二阶导数为零。"
+    },
+    {
+     "key": "B",
+     "note": "不满足过点条件。"
+    },
+    {
+     "key": "D",
+     "note": "不满足过点条件。"
+    }
+   ],
+   "pitfalls": "二阶导数为零只是候选条件，拐点还需凹凸性改变。"
+  },
+  "D1-07": {
+   "verdict": "ok",
+   "selfAnswer": "B",
+   "officialAnswer": "B",
+   "verificationMethod": "逐图转录与数学复算",
+   "keyIdea": "驻点不一定是极值点，须判断一阶导数是否变号。",
+   "steps": [
+    {
+     "title": "第1步",
+     "content": "$y\\prime=6x(x^2-1)^2$，驻点为 $-1,0,1$。"
+    },
+    {
+     "title": "第2步",
+     "content": "除去孤立零点，导数的符号由 $x$ 决定：负半轴为负，正半轴为正。"
+    },
+    {
+     "title": "第3步",
+     "content": "在 $0$ 处导数由负变正，有极小值；在 $\\pm1$ 处不变号，非极值点。选 B。"
+    }
+   ],
+   "optionNotes": [
+    {
+     "key": "A",
+     "note": "在 1 两侧导数均非负，非极值。"
+    },
+    {
+     "key": "C",
+     "note": "零点确实是极小值点。"
+    },
+    {
+     "key": "D",
+     "note": "在 -1 两侧导数均非正，非极值。"
+    }
+   ],
+   "pitfalls": "不要把求出的所有驻点直接当作极值点。"
+  },
+  "D1-08": {
+   "verdict": "ok",
+   "selfAnswer": "C",
+   "officialAnswer": "C",
+   "verificationMethod": "逐图转录与数学复算",
+   "keyIdea": "先满足连续，再使左右导数相等。",
+   "steps": [
+    {
+     "title": "第1步",
+     "content": "连续要求 $a+1=-1+b$，即 $b=a+2$。"
+    },
+    {
+     "title": "第2步",
+     "content": "左右导数分别为 $-2+b$ 与 $2a$，故 $b=2a+2$。"
+    },
+    {
+     "title": "第3步",
+     "content": "联立得 $a=0,b=2$，选 C。"
+    }
+   ],
+   "optionNotes": [
+    {
+     "key": "A",
+     "note": "不满足连续。"
+    },
+    {
+     "key": "B",
+     "note": "不满足连续。"
+    },
+    {
+     "key": "D",
+     "note": "函数在分界点不连续。"
+    }
+   ],
+   "pitfalls": "只比较分段表达式的导数而忽略连续条件，会少一个方程。"
+  },
+  "D1-09": {
+   "verdict": "ok",
+   "selfAnswer": "B",
+   "officialAnswer": "B",
+   "verificationMethod": "逐图转录与数学复算",
+   "keyIdea": "偶函数的一阶导数为奇函数，二阶导数为偶函数。",
+   "steps": [
+    {
+     "title": "第1步",
+     "content": "对 $f(-x)=f(x)$ 求导，得 $f\\prime(-x)=-f\\prime(x)$。"
+    },
+    {
+     "title": "第2步",
+     "content": "对 $x>0$，$-x<0$，故 $f\\prime(x)<0$；再求导得 $f^{\\prime\\prime}(-x)=f^{\\prime\\prime}(x)<0$。"
+    },
+    {
+     "title": "第3步",
+     "content": "正半轴递减且二阶导数为负，按本题教材术语为凸（向下弯），选 B。"
+    }
+   ],
+   "optionNotes": [
+    {
+     "key": "A",
+     "note": "单调性正确，但二阶导数为负不是本题所称的凹。"
+    },
+    {
+     "key": "C",
+     "note": "一阶导数在正半轴为负。"
+    },
+    {
+     "key": "D",
+     "note": "单调性错误。"
+    }
+   ],
+   "pitfalls": "凹凸术语在不同资料中可能有差异，判断时优先看二阶导数符号：本题为 $f^{\\prime\\prime}<0$。"
+  },
+  "D1-10": {
+   "verdict": "ok",
+   "selfAnswer": "C",
+   "officialAnswer": "C",
+   "verificationMethod": "逐图转录与数学复算",
+   "keyIdea": "这是 $0/0$ 型，可先用洛必达法则，再用半角恒等式。",
+   "steps": [
+    {
+     "title": "第1步",
+     "content": "分子分母都趋于零，满足 $0/0$ 型。"
+    },
+    {
+     "title": "第2步",
+     "content": "求导后的比值为 $(\\cos x-1)/(-\\sin x)=(1-\\cos x)/\\sin x=\\tan(x/2)$。"
+    },
+    {
+     "title": "第3步",
+     "content": "$\\tan(x/2)\\to0$，故原极限为零，选 C。"
+    }
+   ],
+   "optionNotes": [
+    {
+     "key": "A",
+     "note": "分子三阶小量、分母二阶小量，不发散。"
+    },
+    {
+     "key": "B",
+     "note": "左右极限都为零。"
+    },
+    {
+     "key": "D",
+     "note": "分子与分母并非同阶。"
+    }
+   ],
+   "pitfalls": "加减项中直接把 $\\sin x$ 换成 $x$ 会抹掉高阶信息；先化型或求导。"
+  },
+  "D2-01": {
+   "verdict": "ok",
+   "selfAnswer": "D",
+   "officialAnswer": "D",
+   "verificationMethod": "逐图转录与数学复算",
+   "keyIdea": "先找到与给定 $y$ 对应的 $x$，再取原函数导数的倒数。",
+   "steps": [
+    {
+     "title": "第1步",
+     "content": "$f(1)=\\ln1+\\arctan1=\\pi/4$，故 $g(\\pi/4)=1$。"
+    },
+    {
+     "title": "第2步",
+     "content": "$f\\prime(x)=1/x+1/(1+x^2)$，所以 $f\\prime(1)=3/2$。"
+    },
+    {
+     "title": "第3步",
+     "content": "$g\\prime(\\pi/4)=1/f\\prime(1)=2/3$，选 D。"
+    }
+   ],
+   "optionNotes": [
+    {
+     "key": "A",
+     "note": "原函数导数非零，其倒数不为零。"
+    },
+    {
+     "key": "B",
+     "note": "反函数仍递增，导数为正。"
+    },
+    {
+     "key": "C",
+     "note": "漏掉了反正切项的导数。"
+    }
+   ],
+   "pitfalls": "不能把 $y=\\pi/4$ 直接代入 $f\\prime(x)$，先求对应的原变量 $x=1$。"
+  },
+  "D2-02": {
+   "verdict": "ok",
+   "selfAnswer": "D",
+   "officialAnswer": "D",
+   "verificationMethod": "逐图转录与数学复算",
+   "keyIdea": "把 $0\\cdot(-\\infty)$ 型改写成商，再用洛必达法则。",
+   "steps": [
+    {
+     "title": "第1步",
+     "content": "$x^2\\ln x=\\ln x/x^{-2}$，是无穷比无穷型。"
+    },
+    {
+     "title": "第2步",
+     "content": "求导后为 $(1/x)/(-2x^{-3})=-x^2/2$。"
+    },
+    {
+     "title": "第3步",
+     "content": "令 $x\\to0^+$ 得零，选 D。"
+    }
+   ],
+   "optionNotes": [
+    {
+     "key": "A",
+     "note": "极限为零，不是 1。"
+    },
+    {
+     "key": "B",
+     "note": "极限为零，不是 2。"
+    },
+    {
+     "key": "C",
+     "note": "极限为零，不是 3。"
+    }
+   ],
+   "pitfalls": "对数要求 $x>0$，必须保留右侧趋近条件。"
+  },
+  "D2-03": {
+   "verdict": "ok",
+   "selfAnswer": "D",
+   "officialAnswer": "D",
+   "verificationMethod": "逐图转录与数学复算",
+   "keyIdea": "计算二阶导数的符号即可判断全区间的凹凸性。",
+   "steps": [
+    {
+     "title": "第1步",
+     "content": "$y\\prime=\\arctan x+x/(1+x^2)$。"
+    },
+    {
+     "title": "第2步",
+     "content": "$y^{\\prime\\prime}=1/(1+x^2)+(1-x^2)/(1+x^2)^2=2/(1+x^2)^2>0$。"
+    },
+    {
+     "title": "第3步",
+     "content": "二阶导数处处为正，按本题教材术语图像处处凹（向上弯），选 D。"
+    }
+   ],
+   "optionNotes": [
+    {
+     "key": "A",
+     "note": "二阶导数在负半轴也为正。"
+    },
+    {
+     "key": "B",
+     "note": "二阶导数为正，不是本题所称的凸。"
+    },
+    {
+     "key": "C",
+     "note": "正半轴二阶导数不变为负。"
+    }
+   ],
+   "pitfalls": "偶函数图像对称并不自动决定凹凸性，仍须检查二阶导数。"
+  },
+  "D2-04": {
+   "verdict": "ok",
+   "selfAnswer": "C",
+   "officialAnswer": "C",
+   "verificationMethod": "逐图转录与数学复算",
+   "keyIdea": "比值极限为负使零点附近函数值小于零，而导数定义仍给出零导数。",
+   "steps": [
+    {
+     "title": "第1步",
+     "content": "$f\\prime(0)=\\lim_{x\\to0}x[f(x)/x^2]=0$。"
+    },
+    {
+     "title": "第2步",
+     "content": "充分接近零点且 $x\\ne0$ 时 $f(x)/x^2<0$，故 $f(x)<0=f(0)$。"
+    },
+    {
+     "title": "第3步",
+     "content": "零点为驻点和严格极大值点，选 C。"
+    }
+   ],
+   "optionNotes": [
+    {
+     "key": "A",
+     "note": "导数存在且为零。"
+    },
+    {
+     "key": "B",
+     "note": "邻域函数值更小，应为极大值。"
+    },
+    {
+     "key": "D",
+     "note": "邻域比较已证明是极大值点。"
+    }
+   ],
+   "pitfalls": "本题极限为 $-2$，与另一题的 $+2$ 结论相反，注意符号。"
+  },
+  "D2-05": {
+   "verdict": "ok",
+   "selfAnswer": "C",
+   "officialAnswer": "C",
+   "verificationMethod": "逐图转录与数学复算",
+   "keyIdea": "闭区间最大值要比较区间内驻点与两个端点的函数值。",
+   "steps": [
+    {
+     "title": "第1步",
+     "content": "$y\\prime=6x^2-12x-18=6(x-3)(x+1)$，区间内驻点仅为 3。"
+    },
+    {
+     "title": "第2步",
+     "content": "$y(1)=-22$，$y(3)=-54$，$y(4)=-40$。"
+    },
+    {
+     "title": "第3步",
+     "content": "三者中最大为 $-22$，在 $x=1$ 取得，选 C。"
+    }
+   ],
+   "optionNotes": [
+    {
+     "key": "A",
+     "note": "3 是区间内极小值点。"
+    },
+    {
+     "key": "B",
+     "note": "-1 不在给定区间内。"
+    },
+    {
+     "key": "D",
+     "note": "端点 4 的函数值小于端点 1。"
+    }
+   ],
+   "pitfalls": "只解导数为零会遗漏端点最值；负数比较也要注意大小。"
+  },
+  "D2-06": {
+   "verdict": "ok",
+   "selfAnswer": "B",
+   "officialAnswer": "B",
+   "verificationMethod": "逐图转录与数学复算",
+   "keyIdea": "可导要求连续且左右导数相等。",
+   "steps": [
+    {
+     "title": "第1步",
+     "content": "连续要求 $a=\\lim_{x\\to0^-}e^x=1$。"
+    },
+    {
+     "title": "第2步",
+     "content": "左导数为 $e^0=1$，右导数为 $b$，故 $b=1$。"
+    },
+    {
+     "title": "第3步",
+     "content": "$a=b=1$，选 B。"
+    }
+   ],
+   "optionNotes": [
+    {
+     "key": "A",
+     "note": "两个参数均不符合条件。"
+    },
+    {
+     "key": "C",
+     "note": "a 不满足连续。"
+    },
+    {
+     "key": "D",
+     "note": "b 使左右导数不相等。"
+    }
+   ],
+   "pitfalls": "指数函数在零点的导数为正 1，不是负 1。"
+  },
+  "D2-07": {
+   "verdict": "ok",
+   "selfAnswer": "C",
+   "officialAnswer": "C",
+   "verificationMethod": "逐图转录与数学复算",
+   "keyIdea": "隐函数求导须对乘积中的 $y$ 和对数中的 $y$ 同时求导。",
+   "steps": [
+    {
+     "title": "第1步",
+     "content": "对 $xy+\\ln y=1$ 求导：$y+xy\\prime+y\\prime/y=0$。"
+    },
+    {
+     "title": "第2步",
+     "content": "$y\\prime=-y/(x+1/y)$，在 $(1,1)$ 处斜率为 $-1/2$。"
+    },
+    {
+     "title": "第3步",
+     "content": "$y-1=-\\frac12(x-1)$，故 $y=-x/2+3/2$，选 C。"
+    }
+   ],
+   "optionNotes": [
+    {
+     "key": "A",
+     "note": "切线斜率不是零。"
+    },
+    {
+     "key": "B",
+     "note": "把导数比值颠倒了。"
+    },
+    {
+     "key": "D",
+     "note": "斜率的符号错误。"
+    }
+   ],
+   "pitfalls": "$\\ln y$ 对 $x$ 求导是 $y\\prime/y$，不能漏乘 $y\\prime$。"
+  },
+  "D2-09": {
+   "verdict": "ok",
+   "selfAnswer": "B",
+   "officialAnswer": "B",
+   "verificationMethod": "逐图转录与数学复算",
+   "keyIdea": "拐点看二阶导数是否在两侧变号，不只统计二阶导数的零点。",
+   "steps": [
+    {
+     "title": "第1步",
+     "content": "负半轴的二阶导数曲线与横轴相切，接触点两侧仍为正，不产生拐点。"
+    },
+    {
+     "title": "第2步",
+     "content": "零点左侧二阶导数为正、右侧为负，函数又在零点连续，因此零点处凹凸性改变。"
+    },
+    {
+     "title": "第3步",
+     "content": "正半轴穿过横轴时二阶导数由负变正，再有一个拐点，总共 2 个，选 B。"
+    }
+   ],
+   "optionNotes": [
+    {
+     "key": "A",
+     "note": "遗漏零点处虽然二阶导数未定义，但凹凸性仍改变。"
+    },
+    {
+     "key": "C",
+     "note": "忽略了两处凹凸性变化。"
+    },
+    {
+     "key": "D",
+     "note": "把负半轴相切的零点也误算为拐点。"
+    }
+   ],
+   "pitfalls": "二阶导数不存在的点也可能是拐点；二阶导数为零的点则不一定是拐点。"
+  },
+  "D2-10": {
+   "verdict": "ok",
+   "selfAnswer": "B",
+   "officialAnswer": "B",
+   "verificationMethod": "逐图转录与数学复算",
+   "keyIdea": "考察平方函数 $F(x)=[f(x)]^2$，其导数能直接利用给定条件。",
+   "steps": [
+    {
+     "title": "第1步",
+     "content": "$F\\prime(x)=2f(x)f\\prime(x)>0$，所以 $F$ 严格递增。"
+    },
+    {
+     "title": "第2步",
+     "content": "因 $1>-1$，得到 $[f(1)]^2>[f(-1)]^2$。"
+    },
+    {
+     "title": "第3步",
+     "content": "不能单独确定 $f\\prime$ 的符号：$f=e^x$ 与 $f=-e^x$ 都满足条件，但单调方向相反。因此唯一必然成立的是 B。"
+    }
+   ],
+   "optionNotes": [
+    {
+     "key": "A",
+     "note": "平方函数严格递增，大小关系相反。"
+    },
+    {
+     "key": "C",
+     "note": "只有 f 为正时才能这样判断，不是必然成立。"
+    },
+    {
+     "key": "D",
+     "note": "只有 f 为负时才能这样判断，不是必然成立。"
+    }
+   ],
+   "pitfalls": "题中的 $f^2(x)$ 表示 $[f(x)]^2$，不是二阶导数。"
   }
  }
 };
