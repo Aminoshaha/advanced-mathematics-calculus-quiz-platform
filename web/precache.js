@@ -1,5 +1,5 @@
 // 自动生成：界面、题库或图片更新后运行 node tools/build-pwa.mjs
-self.__PWA_REVISION="7ceb59411a8933ab";
+self.__PWA_REVISION="3d7ebb9feb80038e";
 self.__PWA_ASSETS=[
   "./",
   "assets/app.css",
