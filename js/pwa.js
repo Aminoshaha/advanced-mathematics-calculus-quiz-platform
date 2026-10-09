@@ -29,7 +29,12 @@ export function installPwaControls() {
       }}));
     };
     if(reg.waiting)offerUpdate();
-    reg.addEventListener("updatefound",()=>{const worker=reg.installing;worker?.addEventListener("statechange",()=>{if(worker.state==="installed"&&navigator.serviceWorker.controller)offerUpdate();});});
+    const watchWorker=worker=>worker?.addEventListener("statechange",()=>{
+      if(worker.state==="installed"&&navigator.serviceWorker.controller)offerUpdate();
+      if(worker.state==="redundant"&&!navigator.serviceWorker.controller){status.textContent="离线准备失败";status.title="联网后刷新页面可重试。";}
+    });
+    watchWorker(reg.installing);
+    reg.addEventListener("updatefound",()=>watchWorker(reg.installing));
     navigator.serviceWorker.ready.then(()=>{if(!reg.waiting)offlineLabel();window.addEventListener("online",offlineLabel);window.addEventListener("offline",offlineLabel);});
     navigator.serviceWorker.addEventListener("controllerchange",()=>{if(updating)location.reload();});
   }).catch(()=>{status.textContent="离线准备失败";status.title="请保持联网后重新打开；当前仍可在线刷题。";});
