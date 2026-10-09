@@ -1,0 +1,16 @@
+{
+  "id": "./",
+  "name": "高等数学 · 极限题库",
+  "short_name": "高数题库",
+  "description": "40 道极限题、考点限额刷题、解析和错题复习，离线可用。",
+  "lang": "zh-CN",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#009fee",
+  "icons": [
+    {"src":"assets/icons/icon-192.png","sizes":"192x192","type":"image/png","purpose":"any"},
+    {"src":"assets/icons/icon-512.png","sizes":"512x512","type":"image/png","purpose":"any maskable"}
+  ]
+}

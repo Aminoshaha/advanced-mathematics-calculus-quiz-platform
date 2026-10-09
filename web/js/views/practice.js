@@ -5,6 +5,7 @@
 import { el, esc, fmtDuration, fmtPct } from "../util.js";
 import { bank, session, weakKnowledgePoints, mistakesAsPool, selectPracticeScope } from "../store.js";
 import { iconHTML, toast, confirmSheet, mathText, kpBadges, emptyState } from "../ui.js";
+import { mobileQuizView } from "./mobile-practice.js";
 
 /* ==========================================================================
    一、练习配置页
@@ -249,6 +250,8 @@ export function quizView(app) {
     // 排到的题都做完了
     return finishPrompt(app);
   }
+  if (typeof matchMedia === "function" && matchMedia("(max-width: 700px)").matches)
+    return mobileQuizView(app, {onPick, next, askFinish, analysisPanel});
 
   const answered = session.answeredCurrent();
   const revealed = !!answered && s.config.mode === "immediate";
