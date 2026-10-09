@@ -255,6 +255,20 @@ export const session = {
     return !!s && s.queue.length > 0 && s.attempts.length >= s.queue.length;
   },
 
+  saveDraft() {
+    const s=session.active;
+    if(s&&!s.finished)storage.set("ghb.active.v1",s);
+  },
+
+  restoreDraft() {
+    const s=storage.get("ghb.active.v1",null);
+    const valid=s&&!s.finished&&Array.isArray(s.queue)&&s.queue.length>0&&s.queue.length<=bank.questions.length&&new Set(s.queue).size===s.queue.length&&s.queue.every(id=>bank.get(id))&&Array.isArray(s.attempts)&&s.config&&Array.isArray(s.config.kps)&&["immediate","batch"].includes(s.config.mode)&&Number.isInteger(s.config.groupSize)&&s.config.groupSize>0&&Number.isInteger(s.cursor)&&s.cursor>=0&&s.cursor<s.queue.length&&Number.isFinite(s.startedAt)&&s.attempts.every(a=>a&&typeof a.qid==="string"&&Number.isInteger(a.index)&&a.index>=0&&a.index<s.queue.length&&s.queue[a.index]===a.qid&&bank.get(a.qid).options.some(o=>o.key===a.picked))&&new Set(s.attempts.map(a=>a.index)).size===s.attempts.length;
+    if(!valid){storage.del("ghb.active.v1");return false;}
+    // 正确性从本地题库重新计算，不信任缓存中的 correct 字段。
+    s.attempts.forEach(a=>a.correct=a.picked===bank.get(a.qid).correctAnswer);
+    s._qStartAt=Date.now();session.active=s;return true;
+  },
+
   current() {
     const s = session.active;
     if (!s) return null;
@@ -386,6 +400,7 @@ export const session = {
     if (persist.history.length > 200) persist.history.length = 200;
     persist.saveHistory();
     s.report = report;
+    storage.del("ghb.active.v1");
     return report;
   },
 
@@ -411,6 +426,7 @@ export const session = {
 
   discard() {
     session.active = null;
+    storage.del("ghb.active.v1");
   },
 };
 

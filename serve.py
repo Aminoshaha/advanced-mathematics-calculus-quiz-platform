@@ -31,6 +31,7 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         ".mjs": "text/javascript",
         ".css": "text/css",
         ".json": "application/json",
+        ".webmanifest": "application/manifest+json",
         ".svg": "image/svg+xml",
         ".woff2": "font/woff2",
     }

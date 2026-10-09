@@ -10,6 +10,7 @@ import { reportView, mistakesView } from "./views/report.js";
 import { statsView, libraryView, papersView } from "./views/others.js";
 import { chaptersView } from "./views/chapters.js";
 import { CHAPTERS } from "./chapters.js";
+import { installPwaControls } from "./pwa.js";
 
 /* ==========================================================================
    应用状态
@@ -124,6 +125,8 @@ const app = {
       this.report = session.finish();
       this.stage = "report";
     }
+    document.body.dataset.stage = this.route === "practice" ? this.stage : this.route;
+    if(typeof matchMedia === "function" && matchMedia("(max-width: 700px)").matches)session.saveDraft();
     const content = document.getElementById("content");
     this._footer = [];
     content.replaceChildren();
@@ -138,10 +141,21 @@ const app = {
     }
 
     renderSidebar(this);
+    renderMobileNav(this);
     renderTitlebar(this);
     startTimerIfNeeded(this);
   },
 };
+
+function renderMobileNav(app) {
+  const host=document.getElementById("mobile-nav");if(!host)return;
+  host.replaceChildren(...[
+    {route:"chapters",label:"题库",icon:"practice"},{route:"mistakes",label:"错题",icon:"mistakes"},
+    {route:"stats",label:"掌握度",icon:"stats"},{route:"library",label:"素材",icon:"library"},
+  ].map(item=>el("button",{"aria-current":app.route===item.route?"page":null,onclick:()=>app.go(item.route)},[
+    el("span",{html:iconHTML(item.icon,20)}),el("span",{text:item.label}),
+  ])));
+}
 
 /* ==========================================================================
    侧边栏
@@ -326,6 +340,9 @@ async function boot() {
   }
 
   bank.load(data);
+  if(matchMedia("(max-width: 700px)").matches && session.restoreDraft()){
+    app.route="practice";app.stage="quiz";app.setup={...app.setup,...session.active.config};
+  }
   document.title = `高等数学题库 · ${bank.meta.chapter || ""}`;
 
   /* 红绿灯 */
@@ -350,6 +367,9 @@ async function boot() {
 
   installKeyboard(app);
   app.render();
+  installPwaControls();
 }
 
 boot();
+window.addEventListener("pagehide",()=>{if(matchMedia("(max-width: 700px)").matches)session.saveDraft();});
+window.addEventListener("resize",()=>{if(!document.querySelector(".sheet-mask"))app.render();});
