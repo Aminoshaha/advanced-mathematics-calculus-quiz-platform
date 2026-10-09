@@ -223,9 +223,9 @@ export function setupView(app) {
 
   return el("div", {}, [
     el("div.content__header", {}, [
-      el("h1.content__title", { text: "极限 · 题库刷题" }),
+      el("h1.content__title", { text: `${bank.title} · 题库刷题` }),
       el("p.content__subtitle", {
-        text: `极限章节 · 共 ${bank.questions.length} 道单选题 · ${bank.knowledgePoints().length} 个知识点`,
+        text: `${bank.title} · 共 ${bank.questions.length} 道单选题 · ${bank.knowledgePoints().length} 个知识点`,
       }),
     ]),
     el("div.content__scroll.scroll", {}, [root]),
@@ -266,6 +266,7 @@ export function quizView(app) {
 
   /* ---- 题干 ---- */
   const stem = el("div.qstem", { html: mathText(q.stemLatex) });
+  if(q.figureSrc)stem.appendChild(el("img.question-figure",{src:q.figureSrc,alt:"题目给定的二阶导数图像（示意图）"}));
 
   /* ---- 选项 ---- */
   const options = el("div.options");
@@ -363,9 +364,9 @@ function headerTitle(s) {
   const kps = s.config.kps;
   if (s.config.mode === "batch") {
     const g = Math.floor(s.cursor / s.config.groupSize) + 1;
-    return `极限 · 第 ${g} 组 · 整组延迟`;
+    return `${bank.title} · 第 ${g} 组 · 整组延迟`;
   }
-  return "极限 · " + (kps.length ? kps.slice(0, 2).join(" / ") + (kps.length > 2 ? " 等" : "") : "逐题即时 · 全部题目");
+  return bank.title + " · " + (kps.length ? kps.slice(0, 2).join(" / ") + (kps.length > 2 ? " 等" : "") : "逐题即时 · 全部题目");
 }
 
 function progressLabel(s) {
@@ -497,7 +498,7 @@ function groupReviewView(app) {
             el("span.badge", { text: `你的答案 ${a.picked}` }),
             !a.correct ? el("span.badge.badge--accent", { text: `正确 ${q.correctAnswer}` }) : null,
           ]),
-          el("div.qstem", { html: mathText(q.stemLatex) }),
+          el("div.qstem", { html: mathText(q.stemLatex) }, q.figureSrc ? [el("img.question-figure",{src:q.figureSrc,alt:"二阶导数图像"})] : []),
           el("div.options", {}, q.options.map((opt) => {
             let cls = "opt";
             if (opt.key === q.correctAnswer) cls += " is-correct";

@@ -316,13 +316,13 @@ export function mistakesView(app) {
       onclick: async () => {
         const ok = await confirmSheet({
           title: "清空错题本？",
-          text: "所有错题记录与订正状态都会被删除，此操作不可撤销。",
+          text: "当前章节的错题与订正状态将删除，其他章节不受影响。此操作不可撤销。",
           okText: "清空",
           danger: true,
           icon: "trash",
         });
         if (!ok) return;
-        persist.mistakes = {};
+        for(const m of all)delete persist.mistakes[m.qid];
         persist.saveMistakes();
         toast("错题本已清空");
         app.render();
@@ -390,7 +390,8 @@ function section(title, items, dim = false) {
 export function exportReport(report) {
   const lines = [];
   const st = report.stats;
-  lines.push("# 高等数学 · 极限 错题本");
+  const chapterTitle=bank.chapterMeta[report.config.chapterId || "limits"]?.chapter || bank.title;
+  lines.push(`# 高等数学 · ${chapterTitle} 错题本`);
   lines.push("");
   lines.push(`- 练习时间：${new Date(report.startedAt).toLocaleString("zh-CN")}`);
   lines.push(`- 范围：${report.config.kps.length ? report.config.kps.join("、") : "全部知识点"}`);
@@ -465,7 +466,7 @@ export function exportReport(report) {
   const a = document.createElement("a");
   const stamp = new Date().toISOString().slice(0, 10);
   a.href = url;
-  a.download = `高数极限-错题本-${stamp}.md`;
+  a.download = `高数${chapterTitle}-错题本-${stamp}.md`;
   document.body.appendChild(a);
   a.click();
   a.remove();

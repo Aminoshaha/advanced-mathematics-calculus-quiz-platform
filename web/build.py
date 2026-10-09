@@ -88,8 +88,23 @@ def main():
             a.pop("id", None)
             analysis[qid] = a
 
-    # 排序：按 testNo + index，保证界面顺序稳定
-    ordered = sorted(questions.values(), key=lambda q: (q.get("testNo", 0), q.get("index", 0)))
+    # 新章节单独保存原始数据，旧极限题 ID 与原始文件保持不变。
+    chapter_meta = {"limits": dict(meta)}
+    for q in questions.values():
+        q.setdefault("chapterId", "limits")
+    extra_path = os.path.join(RAW, "derivatives.json")
+    if os.path.exists(extra_path):
+        extra = load_json(extra_path)
+        chapter_meta["derivatives"] = extra["meta"]
+        for q in extra["questions"]:
+            if q["id"] in questions:
+                raise ValueError("题目 ID 冲突: " + q["id"])
+            questions[q["id"]] = q
+        for qid, a in extra["analysis"].items():
+            analysis[qid] = a
+            if a.get("selfAnswer") != a.get("officialAnswer"):
+                disagree.append((qid, a.get("selfAnswer"), a.get("officialAnswer"), "新章节复算不一致"))
+    ordered = sorted(questions.values(), key=lambda q: (q["chapterId"] != "limits", q.get("testNo", 0), q.get("index", 0)))
     no_ana = [q["id"] for q in ordered if q["id"] not in analysis]
 
     bundle = {
@@ -98,6 +113,7 @@ def main():
             "builtAt": None,
             "questionCount": len(ordered),
             "analysisCount": len(analysis),
+            "chapters": chapter_meta,
         },
         "questions": ordered,
         "analysis": analysis,
@@ -143,7 +159,7 @@ def main():
             print("  %s  自解=%s  官方=%s" % (qid, mine, official))
             print("      %s" % reason.replace("\n", " "))
     else:
-        print("  全部一致 —— 40 道题的独立求解结果与官方答案吻合，交叉验证通过。")
+        print("  全部一致：极限 40 题保留既有核验；导数与微分 19 题本轮复算与截图答案一致。")
 
     print("\n" + line)
     print("转录一致性：发现 %d 处与原图不符" % len(transcription_issues))

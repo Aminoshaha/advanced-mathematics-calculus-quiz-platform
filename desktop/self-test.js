@@ -32,8 +32,8 @@
     const previous = Number(localStorage.getItem('desktop-test-runs') || 0);
     if (previous) assert(persist.history.length >= 2 && Object.keys(persist.mistakes).length >= 1, '重启后历史与错题仍存在');
     for(let i=0;i<3 && document.documentElement.dataset.theme !== 'light';i++) document.getElementById('theme-btn').click();
-    assert(document.querySelectorAll('.chapter-card').length === 4, '章节首页含极限及三个小测预留区域');
-    assert(document.querySelectorAll('.chapter-card--pending button:disabled').length === 3, '未开发小测不能误进入');
+    assert(document.querySelectorAll('.chapter-card').length === 4, '章节首页含两个可用题库及两个小测预留区域');
+    assert(document.querySelectorAll('.chapter-card--pending button:disabled').length === 2, '未开发小测不能误进入');
     await capture('00-章节首页');
     click('进入极限题库');
     await capture('01-练习配置');

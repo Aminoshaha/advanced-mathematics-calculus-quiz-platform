@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 245" role="img" aria-label="二阶导数图像：负半轴与横轴相切，在零点两侧变号，正半轴由负变正">
+<defs><marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0 0L6 3L0 6" fill="currentColor"/></marker></defs>
+<g fill="none" stroke="currentColor" stroke-width="2"><path d="M20 158H315M165 225V15" marker-end="url(#arrow)"/><path d="M35 108Q65 208 99 108Q124 57 149 23M190 216Q196 147 229 115Q254 86 291 76" stroke-width="3"/></g>
+<g fill="currentColor" font-family="serif" font-size="20"><text x="306" y="182">x</text><text x="174" y="25">y</text><text x="144" y="181">0</text><text x="72" y="57">f″(x)</text></g>
+</svg>
